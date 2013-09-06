@@ -13,16 +13,23 @@ module.exports = function(grunt) {
         '!assets/js/scripts.min.js'
       ]
     },
-    recess: {
+    sass: {
       dist: {
-        options: {
-          compile: true,
-          compress: true
-        },
         files: {
-          'assets/css/main.min.css': [
-            'assets/less/app.less'
-          ]
+          'assets/css/main.css': 'assets/scss/main.scss'
+        }
+      }
+    },
+    autoprefixer: {
+      dist: {
+        src: 'assets/css/main.css',
+        dest: 'assets/css/main.css'
+      },
+    },
+    csso: {
+      dist: {
+        files: {
+          'assets/css/main.min.css': ['assets/css/main.css']
         }
       }
     },
@@ -30,18 +37,18 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'assets/js/scripts.min.js': [
-            'assets/js/plugins/bootstrap/transition.js',
-            'assets/js/plugins/bootstrap/alert.js',
-            'assets/js/plugins/bootstrap/button.js',
-            'assets/js/plugins/bootstrap/carousel.js',
-            'assets/js/plugins/bootstrap/collapse.js',
-            'assets/js/plugins/bootstrap/dropdown.js',
-            'assets/js/plugins/bootstrap/modal.js',
-            'assets/js/plugins/bootstrap/tooltip.js',
-            'assets/js/plugins/bootstrap/popover.js',
-            'assets/js/plugins/bootstrap/scrollspy.js',
-            'assets/js/plugins/bootstrap/tab.js',
-            'assets/js/plugins/bootstrap/affix.js',
+            'bower_components/sass-bootstrap/js/transition.js',
+            'bower_components/sass-bootstrap/js/alert.js',
+            'bower_components/sass-bootstrap/js/button.js',
+            'bower_components/sass-bootstrap/js/carousel.js',
+            'bower_components/sass-bootstrap/js/collapse.js',
+            'bower_components/sass-bootstrap/js/dropdown.js',
+            'bower_components/sass-bootstrap/js/modal.js',
+            'bower_components/sass-bootstrap/js/tooltip.js',
+            'bower_components/sass-bootstrap/js/popover.js',
+            'bower_components/sass-bootstrap/js/scrollspy.js',
+            'bower_components/sass-bootstrap/js/tab.js',
+            'bower_components/sass-bootstrap/js/affix.js',
             'assets/js/plugins/*.js',
             'assets/js/_*.js'
           ]
@@ -49,24 +56,25 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      less: {
+      sass: {
         files: [
-          'assets/less/*.less',
-          'assets/less/bootstrap/*.less'
+          'assets/scss/*.scss',
+          'assets/scss/partials/*.scss',
+          'bower_components/sass-bootstrap/lib/*.scss'
         ],
-        tasks: ['recess', 'version']
+        tasks: ['sass', 'autoprefixer', 'csso', 'version']
       },
       js: {
         files: [
           '<%= jshint.all %>'
         ],
-        tasks: ['jshint', 'uglify', 'version']
+        tasks: ['uglify', 'version']
       },
       livereload: {
         // Browser live reloading
         // https://github.com/gruntjs/grunt-contrib-watch#live-reloading
         options: {
-          livereload: false
+          livereload: true
         },
         files: [
           'assets/css/main.min.css',
@@ -90,12 +98,16 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-recess');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-csso');
 
   // Register tasks
   grunt.registerTask('default', [
     'clean',
-    'recess',
+    'sass',
+    'autoprefixer',
+    'csso',
     'uglify',
     'version'
   ]);

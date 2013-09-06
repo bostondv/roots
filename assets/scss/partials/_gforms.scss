@@ -1,0 +1,64 @@
+/* Bootstrap styles for Gravity Forms */
+
+.gform_wrapper ul {
+  @extend .list-unstyled;
+}
+.gform_wrapper li {
+  @extend .form-group;
+}
+.gform_wrapper form {
+  margin-bottom: 0;
+}
+.gform_wrapper .gfield_label {
+  @extend .control-label;
+}
+.gform_wrapper .gfield_required {
+  padding-left: 2px;
+  color: $state-danger-text;
+}
+.ginput_container input,
+.ginput_container select,
+.ginput_container textarea {
+  @extend .form-control;
+}
+.ginput_container textarea {
+  height: auto;
+}
+.gform_button {
+  @extend .btn;
+  @extend .btn-primary;
+}
+.gform_wrapper .gfield_error {
+  @extend .has-error;
+}
+.validation_error {
+  @extend .alert;
+  @extend .alert-danger;
+}
+#gforms_confirmation_message {
+  @extend .alert;
+  @extend .alert-success;
+}
+.gfield_description {
+  @extend .help-block;
+}
+.validation_message {
+  color: $state-danger-text;
+}
+
+.form-horizontal {
+  .gfield_label {
+    @extend .col-md-2;
+  }
+  .ginput_container {
+    @extend .col-md-10;
+  }
+  .gform_footer {
+    @extend .col-md-10;
+    @extend .col-md-push-2;
+  }
+  .gfield_description {
+    @extend .col-md-10;
+    @extend .col-md-push-2;
+  }
+}
