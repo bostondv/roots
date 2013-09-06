@@ -6,6 +6,16 @@ var ExampleSite = {
   common: {
     init: function() {
       // JS here
+
+      // Run fitVids on main content
+      $('.main').fitVids();
+
+      // Wrap gform footer in Bootstrap ".form-group"
+      // TODO: Do this in php
+      $('.gform_footer').each(function() {
+        $(this).wrap('<div class="form-group"></div>');
+      });
+
     },
     finalize: function() { }
   },

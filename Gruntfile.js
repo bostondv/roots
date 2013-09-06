@@ -49,6 +49,7 @@ module.exports = function(grunt) {
             'bower_components/sass-bootstrap/js/scrollspy.js',
             'bower_components/sass-bootstrap/js/tab.js',
             'bower_components/sass-bootstrap/js/affix.js',
+            'bower_components/fitvids/jquery.fitvids.js',
             'assets/js/plugins/*.js',
             'assets/js/_*.js'
           ]
