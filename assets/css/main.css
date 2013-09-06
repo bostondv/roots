@@ -7324,39 +7324,6 @@ figure.alignnone {
 
 @media (min-width: 768px) {
   /* Small devices (tablets, 768px and up) */
-
-  .navbar-logo {
-    margin: 0 auto;
-  }
-
-  .dropdown-menu::after {
-    position: absolute;
-    top: -11px;
-    left: 25px;
-    display: inline-block;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid white;
-    border-left: 10px solid transparent;
-    content: '';
-  }
-
-  .popover-align-top {
-    top: 0 !important;
-  }
-
-  .popover-align-top .arrow {
-    top: 95px !important;
-  }
-
-  .navbar-collapse {
-    margin-top: 75px;
-    margin-left: -30px;
-    border: 0;
-  }
-
-  .home .navbar-collapse {
-    margin-top: 30px;
-  }
 }
 
 @media (min-width: 992px) {
