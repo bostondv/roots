@@ -1,16 +1,10 @@
-/*!
- * Roots 6.5.0
- */
+/*------------------------------------*\
+  $STYLES
+\*------------------------------------*/
 
-/* @font-face rules */
-
-/* Bootstrap variable overrides */
-
-/* Custom mixins */
-
-/**
- * @2x retina mixin for background images
- */
+/*------------------------------------*\
+  $VARIABLES
+\*------------------------------------*/
 
 /*!
  * Bootstrap v3.0.0
@@ -1869,35 +1863,55 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .form-control:-moz-placeholder,
-.ginput_container input:-moz-placeholder,
+.ginput_container input[type="text"]:-moz-placeholder,
+.ginput_container input[type="email"]:-moz-placeholder,
+.ginput_container input[type="tel"]:-moz-placeholder,
+.ginput_container input[type="password"]:-moz-placeholder,
+.ginput_container input[type="search"]:-moz-placeholder,
 .ginput_container select:-moz-placeholder,
 .ginput_container textarea:-moz-placeholder {
   color: #999999;
 }
 
 .form-control::-moz-placeholder,
-.ginput_container input::-moz-placeholder,
+.ginput_container input[type="text"]::-moz-placeholder,
+.ginput_container input[type="email"]::-moz-placeholder,
+.ginput_container input[type="tel"]::-moz-placeholder,
+.ginput_container input[type="password"]::-moz-placeholder,
+.ginput_container input[type="search"]::-moz-placeholder,
 .ginput_container select::-moz-placeholder,
 .ginput_container textarea::-moz-placeholder {
   color: #999999;
 }
 
 .form-control:-ms-input-placeholder,
-.ginput_container input:-ms-input-placeholder,
+.ginput_container input[type="text"]:-ms-input-placeholder,
+.ginput_container input[type="email"]:-ms-input-placeholder,
+.ginput_container input[type="tel"]:-ms-input-placeholder,
+.ginput_container input[type="password"]:-ms-input-placeholder,
+.ginput_container input[type="search"]:-ms-input-placeholder,
 .ginput_container select:-ms-input-placeholder,
 .ginput_container textarea:-ms-input-placeholder {
   color: #999999;
 }
 
 .form-control::-webkit-input-placeholder,
-.ginput_container input::-webkit-input-placeholder,
+.ginput_container input[type="text"]::-webkit-input-placeholder,
+.ginput_container input[type="email"]::-webkit-input-placeholder,
+.ginput_container input[type="tel"]::-webkit-input-placeholder,
+.ginput_container input[type="password"]::-webkit-input-placeholder,
+.ginput_container input[type="search"]::-webkit-input-placeholder,
 .ginput_container select::-webkit-input-placeholder,
 .ginput_container textarea::-webkit-input-placeholder {
   color: #999999;
 }
 
 .form-control,
-.ginput_container input,
+.ginput_container input[type="text"],
+.ginput_container input[type="email"],
+.ginput_container input[type="tel"],
+.ginput_container input[type="password"],
+.ginput_container input[type="search"],
 .ginput_container select,
 .ginput_container textarea {
   display: block;
@@ -1918,7 +1932,11 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .form-control:focus,
-.ginput_container input:focus,
+.ginput_container input[type="text"]:focus,
+.ginput_container input[type="email"]:focus,
+.ginput_container input[type="tel"]:focus,
+.ginput_container input[type="password"]:focus,
+.ginput_container input[type="search"]:focus,
 .ginput_container select:focus,
 .ginput_container textarea:focus {
   border-color: #66afe9;
@@ -1928,16 +1946,32 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .form-control[disabled],
-.ginput_container input[disabled],
+.ginput_container input[disabled][type="text"],
+.ginput_container input[disabled][type="email"],
+.ginput_container input[disabled][type="tel"],
+.ginput_container input[disabled][type="password"],
+.ginput_container input[disabled][type="search"],
 .ginput_container select[disabled],
 .ginput_container textarea[disabled],
 .form-control[readonly],
-.ginput_container input[readonly],
+.ginput_container input[readonly][type="text"],
+.ginput_container input[readonly][type="email"],
+.ginput_container input[readonly][type="tel"],
+.ginput_container input[readonly][type="password"],
+.ginput_container input[readonly][type="search"],
 .ginput_container select[readonly],
 .ginput_container textarea[readonly],
 fieldset[disabled] .form-control,
-fieldset[disabled] .ginput_container input,
-.ginput_container fieldset[disabled] input,
+fieldset[disabled] .ginput_container input[type="text"],
+.ginput_container fieldset[disabled] input[type="text"],
+fieldset[disabled] .ginput_container input[type="email"],
+.ginput_container fieldset[disabled] input[type="email"],
+fieldset[disabled] .ginput_container input[type="tel"],
+.ginput_container fieldset[disabled] input[type="tel"],
+fieldset[disabled] .ginput_container input[type="password"],
+.ginput_container fieldset[disabled] input[type="password"],
+fieldset[disabled] .ginput_container input[type="search"],
+.ginput_container fieldset[disabled] input[type="search"],
 fieldset[disabled] .ginput_container select,
 .ginput_container fieldset[disabled] select,
 fieldset[disabled] .ginput_container textarea,
@@ -1976,6 +2010,7 @@ textarea.form-control,
 
 .radio input[type="radio"],
 .radio-inline input[type="radio"],
+.gfield_radio li input[type="radio"],
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
   float: left;
@@ -1988,6 +2023,7 @@ textarea.form-control,
 }
 
 .radio-inline,
+.gfield_radio li,
 .checkbox-inline {
   display: inline-block;
   padding-left: 20px;
@@ -1998,6 +2034,9 @@ textarea.form-control,
 }
 
 .radio-inline + .radio-inline,
+.gfield_radio li + .radio-inline,
+.gfield_radio .radio-inline + li,
+.gfield_radio li + li,
 .checkbox-inline + .checkbox-inline {
   margin-top: 0;
   margin-left: 10px;
@@ -2012,8 +2051,11 @@ input[type="checkbox"],
 fieldset[disabled]
 .radio,
 .radio-inline[disabled],
+.gfield_radio li[disabled],
 fieldset[disabled]
 .radio-inline,
+fieldset[disabled] .gfield_radio li,
+.gfield_radio fieldset[disabled] li,
 .checkbox[disabled],
 fieldset[disabled]
 .checkbox,
@@ -2025,7 +2067,11 @@ fieldset[disabled]
 
 .input-sm,
 .input-group-sm > .form-control,
-.ginput_container .input-group-sm > input,
+.ginput_container .input-group-sm > input[type="text"],
+.ginput_container .input-group-sm > input[type="email"],
+.ginput_container .input-group-sm > input[type="tel"],
+.ginput_container .input-group-sm > input[type="password"],
+.ginput_container .input-group-sm > input[type="search"],
 .ginput_container .input-group-sm > select,
 .ginput_container .input-group-sm > textarea,
 .input-group-sm > .input-group-addon,
@@ -2059,7 +2105,11 @@ textarea.input-sm,
 
 .input-lg,
 .input-group-lg > .form-control,
-.ginput_container .input-group-lg > input,
+.ginput_container .input-group-lg > input[type="text"],
+.ginput_container .input-group-lg > input[type="email"],
+.ginput_container .input-group-lg > input[type="tel"],
+.ginput_container .input-group-lg > input[type="password"],
+.ginput_container .input-group-lg > input[type="search"],
 .ginput_container .input-group-lg > select,
 .ginput_container .input-group-lg > textarea,
 .input-group-lg > .input-group-addon,
@@ -2100,8 +2150,16 @@ textarea.input-lg,
 }
 
 .has-warning .form-control,
-.has-warning .ginput_container input,
-.ginput_container .has-warning input,
+.has-warning .ginput_container input[type="text"],
+.ginput_container .has-warning input[type="text"],
+.has-warning .ginput_container input[type="email"],
+.ginput_container .has-warning input[type="email"],
+.has-warning .ginput_container input[type="tel"],
+.ginput_container .has-warning input[type="tel"],
+.has-warning .ginput_container input[type="password"],
+.ginput_container .has-warning input[type="password"],
+.has-warning .ginput_container input[type="search"],
+.ginput_container .has-warning input[type="search"],
 .has-warning .ginput_container select,
 .ginput_container .has-warning select,
 .has-warning .ginput_container textarea,
@@ -2112,8 +2170,16 @@ textarea.input-lg,
 }
 
 .has-warning .form-control:focus,
-.has-warning .ginput_container input:focus,
-.ginput_container .has-warning input:focus,
+.has-warning .ginput_container input[type="text"]:focus,
+.ginput_container .has-warning input[type="text"]:focus,
+.has-warning .ginput_container input[type="email"]:focus,
+.ginput_container .has-warning input[type="email"]:focus,
+.has-warning .ginput_container input[type="tel"]:focus,
+.ginput_container .has-warning input[type="tel"]:focus,
+.has-warning .ginput_container input[type="password"]:focus,
+.ginput_container .has-warning input[type="password"]:focus,
+.has-warning .ginput_container input[type="search"]:focus,
+.ginput_container .has-warning input[type="search"]:focus,
 .has-warning .ginput_container select:focus,
 .ginput_container .has-warning select:focus,
 .has-warning .ginput_container textarea:focus,
@@ -2143,10 +2209,26 @@ textarea.input-lg,
 
 .has-error .form-control,
 .gform_wrapper .gfield_error .form-control,
-.has-error .ginput_container input,
-.ginput_container .has-error input,
-.gform_wrapper .gfield_error .ginput_container input,
-.ginput_container .gform_wrapper .gfield_error input,
+.has-error .ginput_container input[type="text"],
+.ginput_container .has-error input[type="text"],
+.gform_wrapper .gfield_error .ginput_container input[type="text"],
+.ginput_container .gform_wrapper .gfield_error input[type="text"],
+.has-error .ginput_container input[type="email"],
+.ginput_container .has-error input[type="email"],
+.gform_wrapper .gfield_error .ginput_container input[type="email"],
+.ginput_container .gform_wrapper .gfield_error input[type="email"],
+.has-error .ginput_container input[type="tel"],
+.ginput_container .has-error input[type="tel"],
+.gform_wrapper .gfield_error .ginput_container input[type="tel"],
+.ginput_container .gform_wrapper .gfield_error input[type="tel"],
+.has-error .ginput_container input[type="password"],
+.ginput_container .has-error input[type="password"],
+.gform_wrapper .gfield_error .ginput_container input[type="password"],
+.ginput_container .gform_wrapper .gfield_error input[type="password"],
+.has-error .ginput_container input[type="search"],
+.ginput_container .has-error input[type="search"],
+.gform_wrapper .gfield_error .ginput_container input[type="search"],
+.ginput_container .gform_wrapper .gfield_error input[type="search"],
 .has-error .ginput_container select,
 .ginput_container .has-error select,
 .gform_wrapper .gfield_error .ginput_container select,
@@ -2162,10 +2244,26 @@ textarea.input-lg,
 
 .has-error .form-control:focus,
 .gform_wrapper .gfield_error .form-control:focus,
-.has-error .ginput_container input:focus,
-.ginput_container .has-error input:focus,
-.gform_wrapper .gfield_error .ginput_container input:focus,
-.ginput_container .gform_wrapper .gfield_error input:focus,
+.has-error .ginput_container input[type="text"]:focus,
+.ginput_container .has-error input[type="text"]:focus,
+.gform_wrapper .gfield_error .ginput_container input[type="text"]:focus,
+.ginput_container .gform_wrapper .gfield_error input[type="text"]:focus,
+.has-error .ginput_container input[type="email"]:focus,
+.ginput_container .has-error input[type="email"]:focus,
+.gform_wrapper .gfield_error .ginput_container input[type="email"]:focus,
+.ginput_container .gform_wrapper .gfield_error input[type="email"]:focus,
+.has-error .ginput_container input[type="tel"]:focus,
+.ginput_container .has-error input[type="tel"]:focus,
+.gform_wrapper .gfield_error .ginput_container input[type="tel"]:focus,
+.ginput_container .gform_wrapper .gfield_error input[type="tel"]:focus,
+.has-error .ginput_container input[type="password"]:focus,
+.ginput_container .has-error input[type="password"]:focus,
+.gform_wrapper .gfield_error .ginput_container input[type="password"]:focus,
+.ginput_container .gform_wrapper .gfield_error input[type="password"]:focus,
+.has-error .ginput_container input[type="search"]:focus,
+.ginput_container .has-error input[type="search"]:focus,
+.gform_wrapper .gfield_error .ginput_container input[type="search"]:focus,
+.ginput_container .gform_wrapper .gfield_error input[type="search"]:focus,
 .has-error .ginput_container select:focus,
 .ginput_container .has-error select:focus,
 .gform_wrapper .gfield_error .ginput_container select:focus,
@@ -2195,8 +2293,16 @@ textarea.input-lg,
 }
 
 .has-success .form-control,
-.has-success .ginput_container input,
-.ginput_container .has-success input,
+.has-success .ginput_container input[type="text"],
+.ginput_container .has-success input[type="text"],
+.has-success .ginput_container input[type="email"],
+.ginput_container .has-success input[type="email"],
+.has-success .ginput_container input[type="tel"],
+.ginput_container .has-success input[type="tel"],
+.has-success .ginput_container input[type="password"],
+.ginput_container .has-success input[type="password"],
+.has-success .ginput_container input[type="search"],
+.ginput_container .has-success input[type="search"],
 .has-success .ginput_container select,
 .ginput_container .has-success select,
 .has-success .ginput_container textarea,
@@ -2207,8 +2313,16 @@ textarea.input-lg,
 }
 
 .has-success .form-control:focus,
-.has-success .ginput_container input:focus,
-.ginput_container .has-success input:focus,
+.has-success .ginput_container input[type="text"]:focus,
+.ginput_container .has-success input[type="text"]:focus,
+.has-success .ginput_container input[type="email"]:focus,
+.ginput_container .has-success input[type="email"]:focus,
+.has-success .ginput_container input[type="tel"]:focus,
+.ginput_container .has-success input[type="tel"]:focus,
+.has-success .ginput_container input[type="password"]:focus,
+.ginput_container .has-success input[type="password"]:focus,
+.has-success .ginput_container input[type="search"]:focus,
+.ginput_container .has-success input[type="search"]:focus,
 .has-success .ginput_container select:focus,
 .ginput_container .has-success select:focus,
 .has-success .ginput_container textarea:focus,
@@ -2251,10 +2365,26 @@ textarea.input-lg,
 
   .form-inline .form-control,
   .navbar-form .form-control,
-  .form-inline .ginput_container input,
-  .ginput_container .form-inline input,
-  .navbar-form .ginput_container input,
-  .ginput_container .navbar-form input,
+  .form-inline .ginput_container input[type="text"],
+  .ginput_container .form-inline input[type="text"],
+  .navbar-form .ginput_container input[type="text"],
+  .ginput_container .navbar-form input[type="text"],
+  .form-inline .ginput_container input[type="email"],
+  .ginput_container .form-inline input[type="email"],
+  .navbar-form .ginput_container input[type="email"],
+  .ginput_container .navbar-form input[type="email"],
+  .form-inline .ginput_container input[type="tel"],
+  .ginput_container .form-inline input[type="tel"],
+  .navbar-form .ginput_container input[type="tel"],
+  .ginput_container .navbar-form input[type="tel"],
+  .form-inline .ginput_container input[type="password"],
+  .ginput_container .form-inline input[type="password"],
+  .navbar-form .ginput_container input[type="password"],
+  .ginput_container .navbar-form input[type="password"],
+  .form-inline .ginput_container input[type="search"],
+  .ginput_container .form-inline input[type="search"],
+  .navbar-form .ginput_container input[type="search"],
+  .ginput_container .navbar-form input[type="search"],
   .form-inline .ginput_container select,
   .ginput_container .form-inline select,
   .navbar-form .ginput_container select,
@@ -2291,6 +2421,8 @@ textarea.input-lg,
 .form-horizontal .radio,
 .form-horizontal .checkbox,
 .form-horizontal .radio-inline,
+.form-horizontal .gfield_radio li,
+.gfield_radio .form-horizontal li,
 .form-horizontal .checkbox-inline {
   margin-top: 0;
   margin-bottom: 0;
@@ -4083,8 +4215,16 @@ input[type="button"].btn-block {
 }
 
 .input-group .form-control,
-.input-group .ginput_container input,
-.ginput_container .input-group input,
+.input-group .ginput_container input[type="text"],
+.ginput_container .input-group input[type="text"],
+.input-group .ginput_container input[type="email"],
+.ginput_container .input-group input[type="email"],
+.input-group .ginput_container input[type="tel"],
+.ginput_container .input-group input[type="tel"],
+.input-group .ginput_container input[type="password"],
+.ginput_container .input-group input[type="password"],
+.input-group .ginput_container input[type="search"],
+.ginput_container .input-group input[type="search"],
 .input-group .ginput_container select,
 .ginput_container .input-group select,
 .input-group .ginput_container textarea,
@@ -4096,8 +4236,16 @@ input[type="button"].btn-block {
 .input-group-addon,
 .input-group-btn,
 .input-group .form-control,
-.input-group .ginput_container input,
-.ginput_container .input-group input,
+.input-group .ginput_container input[type="text"],
+.ginput_container .input-group input[type="text"],
+.input-group .ginput_container input[type="email"],
+.ginput_container .input-group input[type="email"],
+.input-group .ginput_container input[type="tel"],
+.ginput_container .input-group input[type="tel"],
+.input-group .ginput_container input[type="password"],
+.ginput_container .input-group input[type="password"],
+.input-group .ginput_container input[type="search"],
+.ginput_container .input-group input[type="search"],
 .input-group .ginput_container select,
 .ginput_container .input-group select,
 .input-group .ginput_container textarea,
@@ -4108,8 +4256,16 @@ input[type="button"].btn-block {
 .input-group-addon:not(:first-child):not(:last-child),
 .input-group-btn:not(:first-child):not(:last-child),
 .input-group .form-control:not(:first-child):not(:last-child),
-.input-group .ginput_container input:not(:first-child):not(:last-child),
-.ginput_container .input-group input:not(:first-child):not(:last-child),
+.input-group .ginput_container input[type="text"]:not(:first-child):not(:last-child),
+.ginput_container .input-group input[type="text"]:not(:first-child):not(:last-child),
+.input-group .ginput_container input[type="email"]:not(:first-child):not(:last-child),
+.ginput_container .input-group input[type="email"]:not(:first-child):not(:last-child),
+.input-group .ginput_container input[type="tel"]:not(:first-child):not(:last-child),
+.ginput_container .input-group input[type="tel"]:not(:first-child):not(:last-child),
+.input-group .ginput_container input[type="password"]:not(:first-child):not(:last-child),
+.ginput_container .input-group input[type="password"]:not(:first-child):not(:last-child),
+.input-group .ginput_container input[type="search"]:not(:first-child):not(:last-child),
+.ginput_container .input-group input[type="search"]:not(:first-child):not(:last-child),
 .input-group .ginput_container select:not(:first-child):not(:last-child),
 .ginput_container .input-group select:not(:first-child):not(:last-child),
 .input-group .ginput_container textarea:not(:first-child):not(:last-child),
@@ -4136,16 +4292,28 @@ input[type="button"].btn-block {
 }
 
 .input-group-addon.input-sm,
+.ginput_container .input-group-sm > input.input-group-addon[type="text"],
+.ginput_container .input-group-sm > input.input-group-addon[type="email"],
+.ginput_container .input-group-sm > input.input-group-addon[type="tel"],
+.ginput_container .input-group-sm > input.input-group-addon[type="password"],
+.ginput_container .input-group-sm > input.input-group-addon[type="search"],
 .input-group-sm > .input-group-addon,
-.input-group-sm > .input-group-btn > .input-group-addon.btn {
+.input-group-sm > .input-group-btn > .input-group-addon.btn,
+.input-group-sm > .input-group-btn > .input-group-addon.gform_button {
   padding: 5px 10px;
   font-size: 12px;
   border-radius: 3px;
 }
 
 .input-group-addon.input-lg,
+.ginput_container .input-group-lg > input.input-group-addon[type="text"],
+.ginput_container .input-group-lg > input.input-group-addon[type="email"],
+.ginput_container .input-group-lg > input.input-group-addon[type="tel"],
+.ginput_container .input-group-lg > input.input-group-addon[type="password"],
+.ginput_container .input-group-lg > input.input-group-addon[type="search"],
 .input-group-lg > .input-group-addon,
-.input-group-lg > .input-group-btn > .input-group-addon.btn {
+.input-group-lg > .input-group-btn > .input-group-addon.btn,
+.input-group-lg > .input-group-btn > .input-group-addon.gform_button {
   padding: 10px 16px;
   font-size: 18px;
   border-radius: 6px;
@@ -4157,8 +4325,16 @@ input[type="button"].btn-block {
 }
 
 .input-group .form-control:first-child,
-.input-group .ginput_container input:first-child,
-.ginput_container .input-group input:first-child,
+.input-group .ginput_container input[type="text"]:first-child,
+.ginput_container .input-group input[type="text"]:first-child,
+.input-group .ginput_container input[type="email"]:first-child,
+.ginput_container .input-group input[type="email"]:first-child,
+.input-group .ginput_container input[type="tel"]:first-child,
+.ginput_container .input-group input[type="tel"]:first-child,
+.input-group .ginput_container input[type="password"]:first-child,
+.ginput_container .input-group input[type="password"]:first-child,
+.input-group .ginput_container input[type="search"]:first-child,
+.ginput_container .input-group input[type="search"]:first-child,
 .input-group .ginput_container select:first-child,
 .ginput_container .input-group select:first-child,
 .input-group .ginput_container textarea:first-child,
@@ -4178,8 +4354,16 @@ input[type="button"].btn-block {
 }
 
 .input-group .form-control:last-child,
-.input-group .ginput_container input:last-child,
-.ginput_container .input-group input:last-child,
+.input-group .ginput_container input[type="text"]:last-child,
+.ginput_container .input-group input[type="text"]:last-child,
+.input-group .ginput_container input[type="email"]:last-child,
+.ginput_container .input-group input[type="email"]:last-child,
+.input-group .ginput_container input[type="tel"]:last-child,
+.ginput_container .input-group input[type="tel"]:last-child,
+.input-group .ginput_container input[type="password"]:last-child,
+.ginput_container .input-group input[type="password"]:last-child,
+.input-group .ginput_container input[type="search"]:last-child,
+.ginput_container .input-group input[type="search"]:last-child,
 .input-group .ginput_container select:last-child,
 .ginput_container .input-group select:last-child,
 .input-group .ginput_container textarea:last-child,
@@ -7242,10 +7426,55 @@ td.visible-print {
   }
 }
 
+/*------------------------------------*\
+  $GENERIC MIXINS
+\*------------------------------------*/
+
 /**
- * WordPress Generated Classes
- * See: http://codex.wordpress.org/CSS#WordPress_Generated_Classes
-*/
+ * Input placeholder styling
+ */
+
+/**
+ * Style any number of headings in one fell swoop, e.g.:
+ *
+   .foo{
+       @include headings(1, 3){
+           color:#BADA55;
+       }
+    }
+ *
+ * With thanks to @lar_zzz, @paranoida, @rowanmanning and ultimately
+ * @thierrylemoulec for refining and improving my initial mixin.
+ */
+
+/**
+ * Media query mixin.
+ *
+ * We define some broad breakpoints in our vars file that are picked up here
+ * for use in a simple media query mixin. Our options are:
+ *
+ * screen-sm
+ * screen-md
+ * screen-lg
+ *
+ * Not using a media query will, naturally, serve styles to all devices.
+ *
+ * `@include media-query($screen-sm){ [styles here] }`
+ *
+ */
+
+/*
+ * This is a fairly big mixin.
+ * The reason for this is that at the time of writing (09/01/2013),
+ * Sass does not include functions for substring or find/replace in string.
+ * Chris Eppstein sent a Pull Request to Sass with the str-extract (substring) function back in June,
+ * but it still has not been merged, due to lack of minor comments.
+ * That was five months ago.
+ */
+
+/*------------------------------------*\
+  $WORDPRESS GENERATED CLASSES
+\*------------------------------------*/
 
 .aligncenter {
   display: block;
@@ -7254,10 +7483,12 @@ td.visible-print {
 
 .alignleft {
   float: left;
+  margin: 0 20px 20px 0;
 }
 
 .alignright {
   float: right;
+  margin: 0 0 20px 20px;
 }
 
 figure.alignnone {
@@ -7269,7 +7500,32 @@ figure.alignnone {
   padding: 15px 0;
 }
 
-/* Bootstrap styles for Gravity Forms */
+.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+.wp-caption {
+  max-width: 100%;
+  /* Image does not overflow the content area */
+  padding: 5px 3px 10px;
+  text-align: center;
+}
+
+.wp-caption img {
+  height: auto;
+  max-width: 100%;
+  width: auto;
+}
+
+.wp-caption .wp-caption-text {
+  font-size: 0.9em;
+  margin: 0;
+  padding: 0 5px 5px;
+}
+
+/*------------------------------------*\
+  $BOOTSTRAP GRAVITY FORMS
+\*------------------------------------*/
 
 .gform_wrapper form {
   margin-bottom: 0;
@@ -7288,48 +7544,15 @@ figure.alignnone {
   color: #b94a48;
 }
 
-/* All devices */
-
-/* ==========================================================================
-   Base
-   ========================================================================== */
-
-/* ==========================================================================
-   Header
-   ========================================================================== */
-
-/* ==========================================================================
-   Content
-   ========================================================================== */
-
-/* ==========================================================================
-   Primary Content
-   ========================================================================== */
-
-/* ==========================================================================
-   Sidebar
-   ========================================================================== */
-
-/* ==========================================================================
-   Posts
-   ========================================================================== */
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-
-@media (max-width: 768px) {
-  /* Extra small devices (phones, up to 480px) ONLY */
+.gfield_radio li input {
+  display: inline-block;
+  width: auto;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
-@media (min-width: 768px) {
-  /* Small devices (tablets, 768px and up) */
+.gform_validation_container {
+  display: none;
 }
 
-@media (min-width: 992px) {
-  /* Medium devices (desktops, 992px and up) */
-}
-
-@media (min-width: 1200px) {
-  /* Large devices (large desktops, 1200px and up) */
-}
+/* Import your custom UI styles here */

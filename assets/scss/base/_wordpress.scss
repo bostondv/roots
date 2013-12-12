@@ -1,0 +1,51 @@
+/*------------------------------------*\
+  $WORDPRESS GENERATED CLASSES
+\*------------------------------------*/
+
+.alignnone {
+  
+}
+
+.aligncenter { 
+  display: block; 
+  margin: 0 auto; 
+}
+
+.alignleft { 
+  float: left; 
+  margin: 0 $line-height-computed $line-height-computed 0;
+}
+
+.alignright { 
+  float: right; 
+  margin: 0 0 $line-height-computed $line-height-computed;
+}
+
+figure.alignnone { 
+  margin-left: 0; 
+  margin-right: 0; 
+}
+
+.gallery-row { 
+  padding: 15px 0; 
+}
+
+.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption {
+  max-width: 100%; /* Image does not overflow the content area */
+  padding: 5px 3px 10px;
+  text-align: center;
+  img {
+    height: auto;
+    max-width: 100%;
+    width: auto;
+  }
+  .wp-caption-text {
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0 5px 5px;
+  }
+}

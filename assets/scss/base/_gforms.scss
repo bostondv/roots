@@ -1,4 +1,6 @@
-/* Bootstrap styles for Gravity Forms */
+/*------------------------------------*\
+  $BOOTSTRAP GRAVITY FORMS
+\*------------------------------------*/
 
 .gform_wrapper ul {
   @extend .list-unstyled;
@@ -16,13 +18,19 @@
   padding-left: 2px;
   color: $state-danger-text;
 }
-.ginput_container input,
-.ginput_container select,
-.ginput_container textarea {
-  @extend .form-control;
-}
-.ginput_container textarea {
-  height: auto;
+.ginput_container {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  input[type="search"],
+  select,
+  textarea {
+    @extend .form-control;
+  }
+  textarea {
+    height: auto;
+  }
 }
 .gform_button {
   @extend .btn;
@@ -44,6 +52,17 @@
 }
 .validation_message {
   color: $state-danger-text;
+}
+.gfield_radio li {
+  @extend .radio-inline;
+  input {
+    display: inline-block;
+    width: auto;
+    box-shadow: none;
+  }
+}
+.gform_validation_container {
+  display: none;
 }
 
 .form-horizontal {

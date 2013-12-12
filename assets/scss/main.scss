@@ -1,28 +1,13 @@
-/*!
- * Roots 6.5.0
- */
+/*------------------------------------*\
+  $STYLES
+\*------------------------------------*/
 
-@import "partials/fonts";
-@import "partials/variables";
-@import "partials/mixins";
+@import "vars";
 @import "../../bower_components/sass-bootstrap/lib/bootstrap";
-@import "partials/wordpress";
-@import "partials/gforms";
-@import "partials/base";
 
-@media (max-width: $screen-sm) {
-  @import "partials/screen-phone-max";
-}
+@import "base/mixins";
+@import "base/webfonts";
+@import "base/wordpress";
+@import "base/gforms";
 
-@media (min-width: $screen-sm) {
-  @import "partials/screen-sm";
-}
-
-@media (min-width: $screen-md) {
-  @import "partials/screen-md";
-}
-
-@media (min-width: $screen-lg) {
-  @import "partials/screen-lg";
-}
-
+/* Import your custom UI styles here */
