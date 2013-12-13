@@ -60,7 +60,7 @@ module.exports = function(grunt) {
       sass: {
         files: [
           'assets/scss/*.scss',
-          'assets/scss/partials/*.scss',
+          'assets/scss/**/*.scss',
           'bower_components/sass-bootstrap/lib/*.scss'
         ],
         tasks: ['sass', 'autoprefixer', 'csso', 'version']
