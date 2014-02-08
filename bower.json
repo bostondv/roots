@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "sass-bootstrap": "*",
+    "bootstrap-sass": "git://github.com/twbs/bootstrap-sass.git",
     "fitvids": "*"
   }
 }

@@ -37,19 +37,8 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'assets/js/scripts.min.js': [
-            'bower_components/sass-bootstrap/js/transition.js',
-            'bower_components/sass-bootstrap/js/alert.js',
-            'bower_components/sass-bootstrap/js/button.js',
-            'bower_components/sass-bootstrap/js/carousel.js',
-            'bower_components/sass-bootstrap/js/collapse.js',
-            'bower_components/sass-bootstrap/js/dropdown.js',
-            'bower_components/sass-bootstrap/js/modal.js',
-            'bower_components/sass-bootstrap/js/tooltip.js',
-            'bower_components/sass-bootstrap/js/popover.js',
-            'bower_components/sass-bootstrap/js/scrollspy.js',
-            'bower_components/sass-bootstrap/js/tab.js',
-            'bower_components/sass-bootstrap/js/affix.js',
-            'bower_components/fitvids/jquery.fitvids.js',
+            'assets/components/bootstrap-sass/vendor/assets/javascripts/bootstrap.js',
+            'assets/components/fitvids/jquery.fitvids.js',
             'assets/js/plugins/*.js',
             'assets/js/_*.js'
           ]
@@ -59,9 +48,7 @@ module.exports = function(grunt) {
     watch: {
       sass: {
         files: [
-          'assets/scss/*.scss',
-          'assets/scss/**/*.scss',
-          'bower_components/sass-bootstrap/lib/*.scss'
+          'assets/scss/*.scss'
         ],
         tasks: ['sass', 'autoprefixer', 'csso', 'version']
       },
