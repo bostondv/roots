@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "sass-bootstrap": "~3.0.0",
-    "fitvids": "~1.0.3"
+    "sass-bootstrap": "*",
+    "fitvids": "*"
   }
 }
