@@ -10,5 +10,8 @@
   "devDependencies": {
     "bootstrap-sass": "git://github.com/twbs/bootstrap-sass.git",
     "fitvids": "*"
+  },
+  "dependencies": {
+    "modernizr": "~2.7.1"
   }
 }
