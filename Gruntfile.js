@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = function(grunt) {
 
   grunt.initConfig({
@@ -49,27 +50,18 @@ module.exports = function(grunt) {
         }
       }
     },
-    version: {
-      options: {
-        file: 'lib/scripts.php',
-        css: 'assets/css/main.min.css',
-        cssHandle: 'roots_main',
-        js: 'assets/js/scripts.min.js',
-        jsHandle: 'roots_scripts'
-      }
-    },
     watch: {
       sass: {
         files: [
           'assets/scss/*.scss'
         ],
-        tasks: ['sass', 'autoprefixer', 'csso', 'version']
+        tasks: ['sass', 'autoprefixer', 'csso']
       },
       js: {
         files: [
           '<%= jshint.all %>'
         ],
-        tasks: ['uglify', 'version']
+        tasks: ['uglify']
       },
       livereload: {
         // Browser live reloading
@@ -101,7 +93,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-csso');
-  grunt.loadNpmTasks('grunt-wp-version');
 
   // Register tasks
   grunt.registerTask('default', [
@@ -109,8 +100,7 @@ module.exports = function(grunt) {
     'sass',
     'autoprefixer',
     'csso',
-    'uglify',
-    'version'
+    'uglify'
   ]);
   grunt.registerTask('dev', [
     'watch'
