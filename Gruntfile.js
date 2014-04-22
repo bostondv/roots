@@ -36,8 +36,21 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         files: {
+          // Compress and combine all scripts, modify as needed
           'assets/js/scripts.min.js': [
-            'assets/components/bootstrap-sass/vendor/assets/javascripts/bootstrap.js',
+            'assets/components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap.js',
+            'assets/components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js',
+            'assets/components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js',
+            'assets/components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js',
+            'assets/components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js',
+            'assets/components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js',
+            'assets/components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js',
+            'assets/components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js',
+            'assets/components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js',
+            'assets/components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js',
+            'assets/components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js',
+            'assets/components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js',
+            'assets/components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js',
             'assets/components/fitvids/jquery.fitvids.js',
             'assets/js/plugins/*.js',
             'assets/js/_*.js'
