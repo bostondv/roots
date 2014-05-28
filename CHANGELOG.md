@@ -1,3 +1,12 @@
+### 6.6.0
+* Update to Bootstrap 3.1.1
+* Switch Gulp
+* Add Bootstrap Gravity Forms support
+* Modify WP Gallery output
+* Add optional non-repsonsive SCSS lib
+* Add multi-column gravity forms lib
+* Hide WordPress SEO analysis columns and set the metabox position to low priority
+
 ### 6.5.2: February 4th, 2014
 * Update to Bootstrap 3.1.0
 * Move DOM routing into an anonymous function to support jQuery noConflict

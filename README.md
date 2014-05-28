@@ -1,8 +1,6 @@
 # [Roots Theme](http://roots.io/)
 
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
-
-**Note:** this is a custom fork of Roots which uses SASS version of Bootstrap, Autoprefixer, a customized Grunt script and other modifications.
+This is a custom fork of [Roots Theme](http://roots.io/) which uses SASS version of Bootstrap, Autoprefixer, Gulp and other modifications.
 
 Roots is a WordPress starter theme based on [HTML5 Boilerplate](http://html5boilerplate.com/) & [Bootstrap](http://getbootstrap.com/) that will help you make better themes.
 
@@ -14,23 +12,25 @@ Roots is a WordPress starter theme based on [HTML5 Boilerplate](http://html5boil
 
 ## Installation
 
-Clone the git repo - `git clone git://github.com/bostondv/roots.git` - or [download it](https://github.com/bostondv/roots/zipball/master) and then rename the directory to the name of your theme or website. [Install Grunt](http://gruntjs.com/getting-started), and then install the dependencies for Roots contained in `package.json` by running the following from the Roots theme directory:
+Clone the git repo - `git clone git://github.com/bostondv/roots.git` - or [download it](https://github.com/bostondv/roots/zipball/master) and then rename the directory to the name of your theme or website. Install [npm](http://nodejs.org), [Bower](http://bower.io), and [Gulp](http://gulpjs.com/), then install the dependencies for Roots contained in `package.json` by running the following from the Roots theme directory:
 
 ```
 npm install
 ```
 
-Once Node dependenices are installed you need to [install Bower](http://bower.io/), then install it's dependencies with the following command.
+Once Node dependencies are installed you need to [install Bower](http://bower.io/), then install it's dependencies with the following command.
 
 ```
 bower install
 ```
 
+**Note:** Gulp is configured to use the [Ruby version of Sass](https://github.com/sindresorhus/gulp-ruby-sass) which is more feature-rich but slower. To compile you'll need to have [Ruby](http://rubylang.org) and [Sass](http://sass-lang.com) installed as well.
+
 Reference the [theme activation](http://roots.io/roots-101/#theme-activation) documentation to understand everything that happens once you activate Roots.
 
 ## Theme Development
 
-After you've installed Grunt and ran `npm install` from the theme root, use `grunt watch` to watch for updates to your SASS and JS files and Grunt will automatically re-build as you write your code.
+After you've installed Gulp and ran `npm install` from the theme root, use `gulp watch` to watch for updates to your SASS and JS files and Gulp will automatically re-build as you write your code.
 
 ## Configuration
 
@@ -44,7 +44,6 @@ Edit `lib/init.php` to setup custom navigation menus and post thumbnail sizes.
 
 * [Roots 101](http://roots.io/roots-101/) — A guide to installing Roots, the files and theme organization
 * [Theme Wrapper](http://roots.io/an-introduction-to-the-roots-theme-wrapper/) — Learn all about the theme wrapper
-* [Build Script](http://roots.io/using-grunt-for-wordpress-theme-development/) — A look into the Roots build script powered by Grunt
 * [Roots Sidebar](http://roots.io/the-roots-sidebar/) — Understand how to display or hide the sidebar in Roots
 
 ## Features
@@ -52,7 +51,6 @@ Edit `lib/init.php` to setup custom navigation menus and post thumbnail sizes.
 * Organized file and template structure
 * HTML5 Boilerplate's markup along with ARIA roles and microformat
 * Bootstrap
-* [Grunt build script](http://roots.io/using-grunt-for-wordpress-theme-development/)
 * [Theme activation](http://roots.io/roots-101/#theme-activation)
 * [Theme wrapper](http://roots.io/an-introduction-to-the-roots-theme-wrapper/)
 * Root relative URLs
