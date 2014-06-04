@@ -44,11 +44,11 @@ $fh_gf_responsive_break_at: $screen-sm-min !default;
 //
 
 // Field/form container styling:
-.gform_wrapper:not(.gform_columns_wrapper) ul { @extend .list-unstyled; }
+.gform_wrapper:not(.gform_columns) ul { @extend .list-unstyled; }
 .gform_wrapper li { @extend .form-group; }
 .gform_wrapper form { margin-bottom: 0; }
 
-.gform_columns_wrapper ul {
+.gform_columns ul {
 	list-style: none;
 	margin-bottom: 0;
 	ul {
