@@ -1,0 +1,14 @@
+{
+  "servers": {
+    "staging": {
+      "user": "",
+      "host": "",
+      "path": ""
+    },
+    "production": {
+      "user": "",
+      "host": "",
+      "path": ""
+    }
+  }
+}

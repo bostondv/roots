@@ -28,15 +28,31 @@ bower install
 
 Reference the [theme activation](http://roots.io/roots-101/#theme-activation) documentation to understand everything that happens once you activate Roots.
 
-## Theme Development
-
-After you've installed Gulp and ran `npm install` from the theme root, use `gulp watch` to watch for updates to your SASS and JS files and Gulp will automatically re-build as you write your code.
-
 ## Configuration
 
 Edit `lib/config.php` to enable or disable support for various theme functions and to define constants that are used throughout the theme.
 
 Edit `lib/init.php` to setup custom navigation menus and post thumbnail sizes.
+
+Edit `lib/custom.php` to setup any custom functions and scripts.
+
+Edit `config.json` to setup the staging and production deployment servers.
+
+## Components
+
+It is recommended to install any 3rd-party javascript or css libraries with Bower. Bower libraries are saved to the `components` directory.
+
+Once a library is installed, include any necessary js files in the `gulpfile.js` build script and import any necessary scss files in your `src/main.scss`.
+
+## Building
+
+Gulp is used to build and deploy the theme source files, it runs a variety of functions including minification, css autoprefixing, imagemin, and more.
+
+`gulp` - default task will build all files.
+
+`gulp watch` - watches the css, js, and img directories for changes and builds automatically.
+
+`gulp deploy` - deploys the theme to the destination server. Use `--target production` or `--target staging` to choose deployment target, this parameter can be omitted and will default to `staging`.
 
 ## Documentation
 

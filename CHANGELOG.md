@@ -1,3 +1,8 @@
+### 6.7.0
+* Re-organize assets into separate source and build directories
+* New gulp build script with remote deployment
+* Show outdated browser message for IE8 and below
+
 ### 6.6.0
 * Update to Bootstrap 3.1.1
 * Switch Gulp

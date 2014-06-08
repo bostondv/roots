@@ -7,78 +7,124 @@ var uglify = require('gulp-uglify');
 var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
+var rsync = require('rsyncwrapper').rsync;
+var gutil = require('gulp-util');
+var imagemin = require('gulp-imagemin');
+var cache = require('gulp-cache');
+var args   = require('yargs').argv;
+var gulpif = require('gulp-if');
+var config = require('./config.json');
+var src = 'src/';
+var dest = 'build/';
+var bower = 'components/';
 
-var paths = {
-  css: 'assets/css',
-  scss: 'assets/scss',
-  scripts: 'assets/js',
-  images: 'assets/img',
-  bower: 'assets/components'
-};
+var deployTarget = ( typeof args.target !== 'undefined' ? args.target : 'staging' );
 
-gulp.task('sass', function () {
+gulp.task('styles', function () {
 
-  return gulp.src(paths.scss + '/main.scss')
+  return gulp.src([
+      src + 'scss/main.scss',
+      src + 'scss/editor-style.scss'
+    ])
     .pipe(sass())
-    .pipe(gulp.dest(paths.css));
-
-});
-
-gulp.task('css', function () {
-
-  return gulp.src(paths.css + '/main.css')
     .pipe(prefix('last 1 version', 'ie 9'))
     .pipe(minify({ keepSpecialComments: 1 }))
-    .pipe(rename('main.min.css'))
-    .pipe(gulp.dest(paths.css));
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest(dest + 'css'));
 
 });
 
 gulp.task('scripts', function() {
 
   return gulp.src([
-      paths.bower + '/bootstrap-sass-official/vendor/assets/javascripts/bootstrap.js',
-      paths.bower + '/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js',
-      paths.bower + '/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js',
-      paths.bower + '/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js',
-      paths.bower + '/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js',
-      paths.bower + '/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js',
-      paths.bower + '/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js',
-      paths.bower + '/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js',
-      paths.bower + '/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js',
-      paths.bower + '/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js',
-      paths.bower + '/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js',
-      paths.bower + '/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js',
-      paths.bower + '/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js',
-      paths.bower + '/fitvids/jquery.fitvids.js',
-      paths.scripts + '/plugins/*.js',
-      paths.scripts + '/_*.js'
+      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap.js',
+      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js',
+      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js',
+      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js',
+      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js',
+      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js',
+      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js',
+      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js',
+      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js',
+      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js',
+      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js',
+      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js',
+      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js',
+      bower + 'fitvids/jquery.fitvids.js',
+      src + 'js/plugins/*.js',
+      src + 'js/main.js'
     ])
-    .pipe(concat('scripts.min.js'))
+    .pipe(concat('main.js'))
+    .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
-    .pipe(gulp.dest(paths.scripts));
+    .pipe(gulp.dest(dest + 'js'));
+
+});
+
+gulp.task('admin-scripts', function() {
+
+  return gulp.src([
+      src + 'js/admin.js'
+    ])
+    .pipe(concat('admin.js'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(uglify())
+    .pipe(gulp.dest(dest + 'js'));
 
 });
 
 gulp.task('lint', function() {
 
-  return gulp.src(paths.scripts + '/_*.js')
+  return gulp.src(src + 'js/_*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(jshint.reporter('fail'));
 });
 
+gulp.task('images', function() {
+  return gulp.src(src + 'img/**/*')
+    .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
+    .pipe(gulp.dest(dest + 'img'));
+});
+
+gulp.task('fonts', function() {
+  return gulp.src(src + 'font/*')
+    .pipe(gulp.dest(dest + 'font'));
+});
+
 gulp.task('watch', function () {
 
-  gulp.watch(paths.scss + '/**/*.scss', ['styles']);
-  gulp.watch(paths.scripts + '/**/*.js', ['scripts']);
+  gulp.watch(src + 'scss/**/*.scss', ['styles']);
+  gulp.watch(src + 'js/**/*.js', ['scripts']);
+  gulp.watch(src + 'img/**/*', ['images']);
 
 });
 
-gulp.task('styles', function (cb) {
+gulp.task('rsync', function() {
 
-  sequence('sass', 'css', cb);
+  if ( config.servers[deployTarget].user === '' ||
+       config.servers[deployTarget].host === '' ) {
+    return gutil.log(gutil.colors.red('ERROR:'), 'User, host and path not configured for ' + deployTarget + ' target in config.json');
+  }
+
+  rsync({
+    ssh: true,
+    src: './',
+    dest: config.servers[deployTarget].user + '@' + config.servers[deployTarget].host + ':' + config.servers[deployTarget].path,
+    recursive: true,
+    syncDest: true,
+    exclude: ['node_modules', '.sass-cache'],
+    args: ['--verbose']
+  }, function(error, stdout, stderr, cmd) {
+      gutil.log(stdout);
+  });
 
 });
 
-gulp.task('default', ['styles', 'scripts']);
+gulp.task('deploy', function(cb) {
+
+  sequence('default', 'rsync', cb);
+
+});
+
+gulp.task('default', ['styles', 'scripts', 'admin-scripts', 'images', 'fonts']);

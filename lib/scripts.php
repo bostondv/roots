@@ -3,24 +3,30 @@
  * Enqueue scripts and stylesheets
  *
  * Enqueue stylesheets in the following order:
- * 1. /theme/assets/css/main.min.css
+ * 1. /theme/build/css/main.min.css
  *
  * Enqueue scripts in the following order:
  * 1. jQuery
- * 2. /theme/assets/js/main.min.js (in footer)
+ * 2. /theme/build/js/main.min.js (in footer)
  */
 function roots_scripts() {
-  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, false);
+  wp_enqueue_style('roots_main', get_template_directory_uri() . '/build/css/main.min.css', false, false);
 
   if (is_single() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
   }
 
-  wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', array(), false, true);
+  wp_register_script('roots_scripts', get_template_directory_uri() . '/build/js/main.min.js', array(), false, true);
   wp_enqueue_script('jquery');
   wp_enqueue_script('roots_scripts');
 }
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);
+
+function roots_admin_scripts() {
+  wp_register_script('admin_scripts', get_template_directory_uri() . '/build/js/admin.min.js', array(), false, true);
+  wp_enqueue_script('admin_scripts');
+}
+add_action('admin_enqueue_scripts', 'roots_admin_scripts', 100);
 
 function roots_google_analytics() { ?>
 <script>
