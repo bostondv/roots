@@ -75,7 +75,7 @@ gulp.task('admin-scripts', function() {
 
 gulp.task('lint', function() {
 
-  return gulp.src(src + 'js/_*.js')
+  return gulp.src(src + 'js/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(jshint.reporter('fail'));
