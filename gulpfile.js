@@ -24,7 +24,7 @@ gulp.task('styles', function () {
 
   return gulp.src([
       src + 'scss/main.scss',
-      src + 'scss/editor-style.scss'
+      src + 'scss/editor.scss'
     ])
     .pipe(sass())
     .pipe(prefix('last 1 version', 'ie 9'))
