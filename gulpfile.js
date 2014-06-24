@@ -24,7 +24,7 @@ gulp.task('styles', function () {
 
   return gulp.src([
       src + 'scss/main.scss',
-      src + 'scss/editor-style.scss'
+      src + 'scss/editor.scss'
     ])
     .pipe(sass())
     .pipe(prefix('last 1 version', 'ie 9'))
@@ -75,7 +75,7 @@ gulp.task('admin-scripts', function() {
 
 gulp.task('lint', function() {
 
-  return gulp.src(src + 'js/_*.js')
+  return gulp.src(src + 'js/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(jshint.reporter('fail'));
