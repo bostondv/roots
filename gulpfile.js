@@ -14,7 +14,7 @@ var cache = require('gulp-cache');
 var args   = require('yargs').argv;
 var gulpif = require('gulp-if');
 var config = require('./config.json');
-var src = 'src/';
+var src = 'app/';
 var dest = 'build/';
 var bower = 'components/';
 
@@ -26,10 +26,9 @@ gulp.task('styles', function () {
       src + 'scss/main.scss',
       src + 'scss/editor.scss'
     ])
-    .pipe(sass())
+    .pipe(sass({sourcemap: true}))
     .pipe(prefix('last 1 version', 'ie 9'))
     .pipe(minify({ keepSpecialComments: 1 }))
-    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(dest + 'css'));
 
 });
@@ -55,7 +54,6 @@ gulp.task('scripts', function() {
       src + 'js/main.js'
     ])
     .pipe(concat('main.js'))
-    .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
     .pipe(gulp.dest(dest + 'js'));
 
@@ -67,7 +65,6 @@ gulp.task('admin-scripts', function() {
       src + 'js/admin.js'
     ])
     .pipe(concat('admin.js'))
-    .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
     .pipe(gulp.dest(dest + 'js'));
 
@@ -83,7 +80,11 @@ gulp.task('lint', function() {
 
 gulp.task('images', function() {
   return gulp.src(src + 'img/**/*')
-    .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
+    .pipe(cache(imagemin({
+      optimizationLevel: 5,
+      progressive: true,
+      interlaced: true
+    })))
     .pipe(gulp.dest(dest + 'img'));
 });
 

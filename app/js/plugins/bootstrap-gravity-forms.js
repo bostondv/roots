@@ -1,4 +1,4 @@
-(function($) {
+jQuery(document).ready(function($) {
 
   // Remove extra ul left by column wrapper code
   // Wrap .gform_body in Bootstrap .row
@@ -9,4 +9,4 @@
     $('.gform_columns .gsection').remove();
   }
 
-})(jQuery);
+});

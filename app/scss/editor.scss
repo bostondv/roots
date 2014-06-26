@@ -185,6 +185,9 @@ table {
 html {
   font-size: 62.5%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -487,6 +490,28 @@ dd {
   .dl-horizontal dd:after {
     clear: both;
   }
+}
+.alignnone {
+
+}
+.aligncenter {
+  display: block;
+  margin: 0 auto;
+}
+.alignleft {
+  float: left;
+  margin: 0 20px 10px 0;
+}
+.alignright {
+  float: right;
+  margin: 0 0 10px 20px;
+}
+figure.alignnone {
+  margin-left: 0;
+  margin-right: 0;
+}
+.alignnone {
+  margin: 5px 20px 10px 0;
 }
 abbr[title],
 abbr[data-original-title] {
