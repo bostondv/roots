@@ -28,6 +28,14 @@ function roots_admin_scripts() {
 }
 add_action('admin_enqueue_scripts', 'roots_admin_scripts', 100);
 
+function roots_remove_jquery_migrate( &$scripts ){
+  if(!is_admin()) {
+    $scripts->remove( 'jquery');
+    $scripts->add( 'jquery', false, array( 'jquery-core' ) );
+  }
+}
+add_filter( 'wp_default_scripts', 'roots_remove_jquery_migrate' );
+
 function roots_google_analytics() { ?>
 <script>
   (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
