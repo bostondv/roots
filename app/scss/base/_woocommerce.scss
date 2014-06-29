@@ -5,21 +5,28 @@
   stylesheet off if using.
 \*------------------------------------*/
 
+/* General */
+
+table {
+  @extend .table;
+  @extend .table-striped;
+}
+
 /* Buttons */
 
-.button,
+.button {
+  @extend .btn;
+  @extend .btn-primary;
+}
+
 input.minus,
-input.plus {
+input.plus,
+.lost_password a {
   @extend .btn;
   @extend .btn-default;
 }
 
-.checkout-button {
-  @extend .btn-primary;
-}
-
 .place-order .button {
-  @extend .btn-primary;
   @extend .btn-block;
   @extend .btn-lg;
 }
@@ -35,7 +42,7 @@ input.plus {
 
 .onsale {
   @extend .label;
-  @extend .label-primary;
+  @extend .label-danger;
 }
 
 .single-product {
@@ -134,8 +141,6 @@ form.cart {
 }
 
 .shop_attributes {
-  @extend .table;
-  @extend .table-striped;
   td p:last-child {
     margin-bottom: 0;
   }
@@ -194,7 +199,7 @@ form.cart {
 .comment-form {
   input[type="submit"] {
     @extend .btn;
-    @extend .btn-default;
+    @extend .btn-primary;
   }
   > p {
     @extend .form-group;
@@ -228,18 +233,8 @@ form.cart {
 
 /* Cart */
 
-.shop_table {
-  @extend .table;
-  @extend .table-striped;
-}
-
 table.cart {
   .coupon {
-    @extend .form-inline;
-    text-align: left;
-    label {
-      display: none;
-    }
     @media (min-width: $screen-sm-min) {
       float: left;
       width: 50%;
@@ -266,6 +261,20 @@ table.cart {
   }
 }
 
+input[name="update_cart"] {
+  @extend .btn-default;
+}
+
+.coupon {
+  @extend .form-inline;
+  text-align: left;
+  .button {
+    @extend .btn-default;
+  }
+  label {
+    display: none;
+  }
+}
 
 .cart-collaterals {
   @extend .row;
@@ -274,10 +283,6 @@ table.cart {
 .cart_totals {
   @extend .col-sm-6;
   @extend .col-sm-offset-6;
-  table {
-    @extend .table;
-    @extend .table-striped;
-  }
 }
 
 .shipping_calculator {
@@ -288,9 +293,6 @@ table.cart {
   }
 }
 
-.shipping-calculator-button {
-  @extend .small;
-}
 
 /* Messages */
 
@@ -360,7 +362,10 @@ table.cart {
     @extend .form-row-wide;
   }
   .inline {
-    margin: $padding-base-vertical $padding-base-horizontal;
+    margin: 0 $padding-small-horizontal;
+    display: inline-block;
+    line-height: $input-height-base;
+    vertical-align: middle;
   }
 }
 
@@ -387,7 +392,7 @@ table.cart {
   @extend .form-control;
 }
 
-select {
+.woocommerce select {
   @extend .form-control;
 }
 
@@ -470,6 +475,10 @@ tr.shipping ul {
 
 /* Account */
 
+form.login .form-row:not(.form-row-wide) {
+  width: 100%;
+}
+
 .myaccount_user {
   @extend .alert;
   @extend .alert-warning;
@@ -481,7 +490,7 @@ tr.shipping ul {
   }
 }
 
-body.my-account .addresses {
+.my-account {
   .edit {
     @extend .btn;
     @extend .btn-default;
@@ -489,7 +498,9 @@ body.my-account .addresses {
   }
 }
 
-body.my-account .order-info {
+.my-account .order-info {
   @extend .alert;
   @extend .alert-warning;
 }
+
+/* TODO: Widgets */

@@ -28,3 +28,12 @@ function roots_woocommerce_hooks() {
 
 }
 add_action( 'init', 'roots_woocommerce_hooks' );
+
+// Override up-sells function to change it to 3 column output
+function woocommerce_upsell_display( $posts_per_page = '-1', $columns = 3, $orderby = 'rand' ) {
+  wc_get_template( 'single-product/up-sells.php', array(
+    'posts_per_page'    => $posts_per_page,
+    'orderby'           => apply_filters( 'woocommerce_upsells_orderby', $orderby ),
+    'columns'           => apply_filters( 'woocommerce_upsells_columns', $columns )
+  ) );
+}

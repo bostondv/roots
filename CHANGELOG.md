@@ -1,3 +1,9 @@
+### 6.8.0
+* WooCommerce support with Bootstrap styles
+* Update to Bootstrap 3.2.0
+* Add Font Awesome
+* Various bug fixes
+
 ### 6.7.0
 * Re-organize assets into separate source and build directories
 * New gulp build script with remote deployment
