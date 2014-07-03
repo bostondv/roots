@@ -3,7 +3,7 @@ var sass = require('gulp-ruby-sass');
 var prefix = require('gulp-autoprefixer');
 var minify = require('gulp-minify-css');
 var sequence = require('run-sequence');
-var uglify = require('gulp-uglify');
+var uglify = require('gulp-uglifyjs');
 var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
@@ -26,7 +26,9 @@ gulp.task('styles', function () {
       src + 'scss/main.scss',
       src + 'scss/editor.scss'
     ])
-    .pipe(sass({sourcemap: true}))
+    .pipe(sass({
+      sourcemap: true
+    }))
     .pipe(prefix('last 1 version', 'ie 9'))
     .pipe(minify({ keepSpecialComments: 1 }))
     .pipe(gulp.dest(dest + 'css'));
@@ -36,25 +38,14 @@ gulp.task('styles', function () {
 gulp.task('scripts', function() {
 
   return gulp.src([
-      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap.js',
-      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js',
-      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js',
-      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js',
-      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js',
-      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js',
-      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js',
-      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js',
-      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js',
-      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js',
-      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js',
-      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js',
-      bower + 'bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js',
+      bower + 'bootstrap-sass-official/assets/javascripts/bootstrap.js',
       bower + 'fitvids/jquery.fitvids.js',
       src + 'js/plugins/*.js',
       src + 'js/main.js'
     ])
-    .pipe(concat('main.js'))
-    .pipe(uglify())
+    .pipe(uglify('main.js', {
+      outSourceMap: true
+    }))
     .pipe(gulp.dest(dest + 'js'));
 
 });
