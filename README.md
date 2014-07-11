@@ -54,6 +54,10 @@ Gulp is used to build and deploy the theme source files, it runs a variety of fu
 
 `gulp deploy` - deploys the theme to the destination server. Use `--target production` or `--target staging` to choose deployment target, this parameter can be omitted and will default to `staging`.
 
+## WooCommerce
+
+[Woocommerce](http://www.woothemes.com/woocommerce/) support in included in the theme by default. It extends default WooCommerce markup and styles to work with Roots and Bootstrap. If you do not need WooCommerce support, remove the theme support from `config.php` and `@import "base/woocommerce";` from `main.scss`. You can optionally also remove the woocommerce support files.
+
 ## Documentation
 
 ### [Roots Docs](http://roots.io/docs/)
