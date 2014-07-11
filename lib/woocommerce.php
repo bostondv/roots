@@ -48,7 +48,7 @@ function woocommerce_upsell_display( $posts_per_page = '-1', $columns = 3, $orde
  * Hide sidebar on woocommerce pages
  **/
 function roots_woocommerce_sidebar_display( $display ) {
-  if ( is_woocommerce() || is_account_page() || is_cart() || is_checkout() {
+  if ( is_woocommerce() || is_account_page() || is_cart() || is_checkout() ) {
     return false;
   }
 }
