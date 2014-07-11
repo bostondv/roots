@@ -3,7 +3,7 @@ var sass = require('gulp-ruby-sass');
 var prefix = require('gulp-autoprefixer');
 var minify = require('gulp-minify-css');
 var sequence = require('run-sequence');
-var uglify = require('gulp-uglify');
+var uglify = require('gulp-uglifyjs');
 var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
@@ -44,8 +44,9 @@ gulp.task('scripts', function() {
       src + 'js/plugins/*.js',
       src + 'js/main.js'
     ])
-    .pipe(concat('main.js'))
-    .pipe(uglify())
+    .pipe(uglify('main.js', {
+      outSourceMap: true
+    }))
     .pipe(gulp.dest(dest + 'js'));
 
 });
