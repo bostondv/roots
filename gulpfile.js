@@ -27,8 +27,11 @@ gulp.task('styles', function () {
       src + 'scss/editor.scss'
     ])
     .pipe(sass({
-      sourcemap: true,
-      precision: 10
+      precision: 10,
+      loadPath: [
+        process.cwd() + '/app/scss',
+        process.cwd() + '/components'
+      ]
     }))
     .pipe(prefix('last 1 version', 'ie 9'))
     .pipe(minify({ keepSpecialComments: 1 }))
@@ -45,7 +48,8 @@ gulp.task('scripts', function() {
       src + 'js/main.js'
     ])
     .pipe(uglify('main.js', {
-      outSourceMap: true
+      outSourceMap: true,
+      basePath: 'build/js'
     }))
     .pipe(gulp.dest(dest + 'js'));
 
@@ -56,8 +60,10 @@ gulp.task('admin-scripts', function() {
   return gulp.src([
       src + 'js/admin.js'
     ])
-    .pipe(concat('admin.js'))
-    .pipe(uglify())
+    .pipe(uglify('admin.js', {
+      outSourceMap: true,
+      basePath: 'build/js'
+    }))
     .pipe(gulp.dest(dest + 'js'));
 
 });

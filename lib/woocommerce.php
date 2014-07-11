@@ -1,12 +1,16 @@
 <?php
 /**
  * WooCommerce
- */
+ **/
 
-// Remove woocommerce css
+/**
+ * Remove WooCommerce CSS
+ **/
 add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
-// Custom action and filter hooks
+/**
+ * General woocommerce actions and hooks
+ **/
 function roots_woocommerce_hooks() {
 
   // Remove WooCommerce page header in favour of our own
@@ -29,7 +33,9 @@ function roots_woocommerce_hooks() {
 }
 add_action( 'init', 'roots_woocommerce_hooks' );
 
-// Override up-sells function to change it to 3 column output
+/**
+ * Override up-sells function to change it to 3 column output
+ **/
 function woocommerce_upsell_display( $posts_per_page = '-1', $columns = 3, $orderby = 'rand' ) {
   wc_get_template( 'single-product/up-sells.php', array(
     'posts_per_page'    => $posts_per_page,

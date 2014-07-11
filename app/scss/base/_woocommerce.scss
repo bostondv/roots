@@ -247,6 +247,12 @@ table.cart {
   }
   .actions {
     text-align: right;
+    .button {
+      margin-bottom: $line-height-computed / 2;
+      @media (max-width: $screen-xs-max) {
+        width: 100%;
+      }
+    }
   }
   .product-thumbnail img {
     @extend .img-rounded;
@@ -270,6 +276,13 @@ input[name="update_cart"] {
   text-align: left;
   .button {
     @extend .btn-default;
+    margin-bottom: $line-height-computed / 2;
+    @media (max-width: $screen-xs-max) {
+      width: 100%;
+    }
+  }
+  .input-text {
+    margin-bottom: $line-height-computed / 2;
   }
   label {
     display: none;
@@ -304,7 +317,8 @@ input[name="update_cart"] {
   > .button,
   > li > .button {
     @extend .pull-right;
-    margin-top: -$padding-base-vertical;
+    @extend .btn-xs;
+    margin-top: $line-height-computed - 25px;
   }
 }
 
@@ -326,6 +340,7 @@ input[name="update_cart"] {
   display: block;
   margin: 0;
   margin-left: 14px + $padding-small-horizontal;
+  padding-left: 0;
 }
 
 %checkbox-input {
