@@ -14,7 +14,7 @@ function roots_root_relative_url($input) {
   preg_match('|https?://([^/]+)(/.*)|i', $input, $matches);
 
   if (!isset($matches[1]) || !isset($matches[2])) {
-    return $input; 
+    return $input;
   } elseif (($matches[1] === $_SERVER['SERVER_NAME']) || $matches[1] === $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']) {
     return wp_make_link_relative($input);
   } else {
@@ -47,4 +47,9 @@ if (roots_enable_root_relative_urls()) {
   );
 
   add_filters($root_rel_filters, 'roots_root_relative_url');
+}
+function add_filters($tags, $function) {
+  foreach($tags as $tag) {
+    add_filter($tag, $function);
+  }
 }

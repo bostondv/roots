@@ -3,7 +3,6 @@
  * Enable theme features
  */
 add_theme_support('root-relative-urls');    // Enable relative URLs
-add_theme_support('bootstrap-top-navbar');  // Enable Bootstrap's top navbar
 add_theme_support('bootstrap-gallery');     // Enable Bootstrap's thumbnails component on [gallery]
 add_theme_support('nice-search');           // Enable /?s= to /search/ redirect
 add_theme_support('gravity-forms');
@@ -13,7 +12,6 @@ add_theme_support('woocommerce');
  * Configuration values
  */
 define('GOOGLE_ANALYTICS_ID', ''); // UA-XXXXX-Y (Note: Universal Analytics only, not Classic Analytics)
-define('POST_EXCERPT_LENGTH', 40); // Length in words for excerpt_length filter (http://codex.wordpress.org/Plugin_API/Filter_Reference/excerpt_length)
 
 /**
  * .main classes
@@ -27,14 +25,14 @@ function roots_main_class() {
     $class = 'col-sm-12';
   }
 
-  return apply_filters('roots_main_class', $class);
+  return apply_filters('roots/main_class', $class);
 }
 
 /**
  * .sidebar classes
  */
 function roots_sidebar_class() {
-  return 'col-sm-4';
+  return apply_filters('roots/sidebar_class', 'col-sm-4');
 }
 
 /**
@@ -56,11 +54,7 @@ function roots_display_sidebar() {
      */
     array(
       'is_404',
-      'is_front_page',
-      'is_woocommerce',
-      'is_account_page',
-      'is_cart',
-      'is_checkout'
+      'is_front_page'
     ),
     /**
      * Page template checks (via is_page_template())
@@ -71,7 +65,7 @@ function roots_display_sidebar() {
     )
   );
 
-  return apply_filters('roots_display_sidebar', $sidebar_config->display);
+  return apply_filters('roots/display_sidebar', $sidebar_config->display);
 }
 
 /**

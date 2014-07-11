@@ -74,20 +74,6 @@ function roots_language_attributes() {
 add_filter('language_attributes', 'roots_language_attributes');
 
 /**
- * Manage output of wp_title()
- */
-function roots_wp_title($title) {
-  if (is_feed()) {
-    return $title;
-  }
-
-  $title .= get_bloginfo('name');
-
-  return $title;
-}
-add_filter('wp_title', 'roots_wp_title', 10);
-
-/**
  * Clean up output of stylesheet <link> tags
  */
 function roots_clean_style_tag($input) {
@@ -183,19 +169,6 @@ function roots_remove_dashboard_widgets() {
 add_action('admin_init', 'roots_remove_dashboard_widgets');
 
 /**
- * Clean up the_excerpt()
- */
-function roots_excerpt_length($length) {
-  return POST_EXCERPT_LENGTH;
-}
-
-function roots_excerpt_more($more) {
-  return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'roots') . '</a>';
-}
-add_filter('excerpt_length', 'roots_excerpt_length');
-add_filter('excerpt_more', 'roots_excerpt_more');
-
-/**
  * Remove unnecessary self-closing tags
  */
 function roots_remove_self_closing_tags($input) {
@@ -249,26 +222,3 @@ function roots_request_filter($query_vars) {
   return $query_vars;
 }
 add_filter('request', 'roots_request_filter');
-
-/**
- * Tell WordPress to use searchform.php from the templates/ directory
- */
-function roots_get_search_form($form) {
-  $form = '';
-  locate_template('/templates/searchform.php', true, false);
-  return $form;
-}
-add_filter('get_search_form', 'roots_get_search_form');
-
-/**
- * Set low priorty for WordPress SEO metabox
- */
-add_filter( 'wpseo_metabox_prio', function() {
-  return 'low';
-});
-
-
-/**
- * Remove WordPress SEO columns
- */
-add_filter( 'wpseo_use_page_analysis', '__return_false' );

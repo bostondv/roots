@@ -1,6 +1,6 @@
 <?php
 /**
- * Enqueue scripts and stylesheets
+ * Scripts and stylesheets
  *
  * Enqueue stylesheets in the following order:
  * 1. /theme/build/css/main.css
@@ -36,6 +36,9 @@ function roots_remove_jquery_migrate( &$scripts ){
 }
 add_filter( 'wp_default_scripts', 'roots_remove_jquery_migrate' );
 
+/**
+ * Google Analytics snippet from HTML5 Boilerplate
+ */
 function roots_google_analytics() { ?>
 <script>
   (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

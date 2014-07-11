@@ -1,3 +1,6 @@
+### 7.0.0
+* Merge roots upstream
+
 ### 6.8.0
 * WooCommerce support with Bootstrap styles
 * Update to Bootstrap 3.2.0
