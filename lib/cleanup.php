@@ -25,6 +25,7 @@ function roots_head_cleanup() {
     add_action('wp_head', 'roots_rel_canonical');
   }
 }
+add_action('init', 'roots_head_cleanup');
 
 function roots_rel_canonical() {
   global $wp_the_query;
@@ -40,7 +41,6 @@ function roots_rel_canonical() {
   $link = get_permalink($id);
   echo "\t<link rel=\"canonical\" href=\"$link\">\n";
 }
-add_action('init', 'roots_head_cleanup');
 
 /**
  * Remove the WordPress version from RSS feeds
