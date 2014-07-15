@@ -6,9 +6,19 @@ Roots is a WordPress starter theme based on [HTML5 Boilerplate](http://html5boil
 
 * Source: [https://github.com/bostondv/roots](https://github.com/bostondv/roots)
 * Home Page: [http://roots.io/](http://roots.io/)
-* Twitter: [@retlehs](https://twitter.com/retlehs)
+* Twitter: [@bostondv](https://twitter.com/bostondv)
 * Newsletter: [Subscribe](http://roots.io/subscribe/)
 * Forum: [http://discourse.roots.io/](http://discourse.roots.io/)
+
+### Additional features
+
+Install the [Soil](https://github.com/bostondv/soil) plugin to enable additional features:
+
+* Root relative URLs
+* Nice search (`/search/query/`)
+* Cleaner output of `wp_head` and enqueued assets markup
+* Image captions use `<figure>` and `<figcaption>`
+* and more...
 
 ## Installation
 

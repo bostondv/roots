@@ -1,3 +1,7 @@
+### 7.1.0
+* Remove clean up and relative urls from theme in favour of using Soil plugin
+* Responsive embeds using Bootstrap responsive embeds code
+
 ### 7.0.0
 * Merge roots upstream
 
