@@ -106,13 +106,13 @@ function roots_body_class($classes) {
 add_filter('body_class', 'roots_body_class');
 
 /**
- * Wrap embedded media as suggested by Readability
+ * Wrap embedded media using Bootstrap > 3.2.0 responsive embeds
  *
- * @link https://gist.github.com/965956
- * @link http://www.readability.com/publishers/guidelines#publisher
+ * @link http://getbootstrap.com/components/#responsive-embed
  */
 function roots_embed_wrap($cache, $url, $attr = '', $post_ID = '') {
-  return '<div class="entry-content-asset">' . $cache . '</div>';
+  $cache = str_replace('<iframe', '<iframe class="embed-responsive-item"', $cache);
+  return '<div class="embed-responsive embed-responsive-16by9">' . $cache . '</div>';
 }
 add_filter('embed_oembed_html', 'roots_embed_wrap', 10, 4);
 

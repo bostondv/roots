@@ -43,7 +43,6 @@ gulp.task('scripts', function() {
 
   return gulp.src([
       bower + 'bootstrap-sass-official/assets/javascripts/bootstrap.js',
-      bower + 'fitvids/jquery.fitvids.js',
       src + 'js/plugins/*.js',
       src + 'js/main.js'
     ])
