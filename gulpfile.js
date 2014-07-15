@@ -81,7 +81,10 @@ gulp.task('images', function() {
     .pipe(cache(imagemin({
       optimizationLevel: 5,
       progressive: true,
-      interlaced: true
+      interlaced: true,
+      svgoPlugins: [
+        { removeUselessStrokeAndFill: false }
+      ]
     })))
     .pipe(gulp.dest(dest + 'img'));
 });
@@ -120,10 +123,12 @@ gulp.task('rsync', function() {
 
 });
 
+gulp.task('clearCache', function() {
+  cache.clearAll();
+});
+
 gulp.task('deploy', function(cb) {
-
   sequence('default', 'rsync', cb);
-
 });
 
 gulp.task('default', ['styles', 'scripts', 'admin-scripts', 'images', 'fonts']);
