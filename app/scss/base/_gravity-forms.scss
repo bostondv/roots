@@ -93,10 +93,24 @@ $fh_gf_responsive_break_at: $screen-sm-min !default;
 //
 //	input, select, and textarea element extends:
 //
-.ginput_container input:not([type=submit]),
-.ginput_container select,
-.ginput_container textarea {
-	@extend .form-control;
+.ginput_container {
+	input[type="text"],
+  input[type="email"],
+  input[type="search"],
+  input[type="url"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="week"],
+  input[type="password"],
+  select,
+  textarea {
+		@extend .form-control;
+	}
 }
 
 
