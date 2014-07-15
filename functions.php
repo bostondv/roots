@@ -9,28 +9,41 @@
  *
  * @link https://github.com/roots/roots/pull/1042
  */
-require_once locate_template('/lib/utils.php');           // Utility functions
-require_once locate_template('/lib/init.php');            // Initial theme setup and constants
-require_once locate_template('/lib/wrapper.php');         // Theme wrapper class
-require_once locate_template('/lib/sidebar.php');         // Sidebar class
-require_once locate_template('/lib/config.php');          // Configuration
-require_once locate_template('/lib/activation.php');      // Theme activation
-require_once locate_template('/lib/titles.php');          // Page titles
-require_once locate_template('/lib/cleanup.php');         // Cleanup
-require_once locate_template('/lib/nav.php');             // Custom nav modifications
-require_once locate_template('/lib/gallery.php');         // Custom [gallery] modifications
-require_once locate_template('/lib/comments.php');        // Custom comments modifications
-require_once locate_template('/lib/relative-urls.php');   // Root relative URLs
-require_once locate_template('/lib/scripts.php');         // Scripts and stylesheets
-require_once locate_template('/lib/extras.php');          // Scripts and stylesheets
+$roots_includes = array(
+  'lib/utils.php',           // Utility functions
+  'lib/init.php',            // Initial theme setup and constants
+  'lib/wrapper.php',         // Theme wrapper class
+  'lib/sidebar.php',         // Sidebar class
+  'lib/config.php',          // Configuration
+  'lib/activation.php',      // Theme activation
+  'lib/titles.php',          // Page titles
+  'lib/nav.php',             // Custom nav modifications
+  'lib/gallery.php',         // Custom [gallery] modifications
+  'lib/comments.php',        // Custom comments modifications
+  'lib/scripts.php',         // Scripts and stylesheets
+  'lib/extras.php',          // Custom functions
+);
 
+/**
+ * Add gravity forms if theme supports it
+ */
 if ( current_theme_supports('gravity-forms') ) {
-  require_once locate_template('/lib/gravity-forms.php'); // Gravity forms
+  $roots_includes[] = 'lib/gravity-forms.php';
 }
 
+/**
+ * Add woocommerce if theme supports it
+ */
 if ( current_theme_supports('woocommerce') &&
      in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-  require_once locate_template('/lib/woocommerce.php');   // WooCommerce
+  $roots_includes[] = 'lib/woocommerce.php';
 }
 
-require_once locate_template('/lib/custom.php');          // Custom functions
+foreach ($roots_includes as $file) {
+  if (!$filepath = locate_template($file)) {
+    trigger_error(sprintf(__('Error locating %s for inclusion', 'roots'), $file), E_USER_ERROR);
+  }
+
+  require_once $filepath;
+}
+unset($file, $filepath);

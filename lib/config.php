@@ -2,9 +2,11 @@
 /**
  * Enable theme features
  */
-add_theme_support('root-relative-urls');    // Enable relative URLs
-add_theme_support('bootstrap-gallery');     // Enable Bootstrap's thumbnails component on [gallery]
-add_theme_support('nice-search');           // Enable /?s= to /search/ redirect
+add_theme_support('soil-clean-up');
+add_theme_support('soil-relative-urls');
+add_theme_support('soil-nice-search');
+add_theme_support('soil-disable-trackbacks');
+add_theme_support('bootstrap-gallery');
 add_theme_support('gravity-forms');
 add_theme_support('woocommerce');
 

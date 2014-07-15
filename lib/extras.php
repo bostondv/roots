@@ -28,15 +28,3 @@ function roots_wp_title($title) {
   return $title;
 }
 add_filter('wp_title', 'roots_wp_title', 10);
-
-/**
- * Set low priorty for WordPress SEO metabox
- */
-add_filter( 'wpseo_metabox_prio', function() {
-  return 'low';
-});
-
-/**
- * Remove WordPress SEO columns
- */
-add_filter( 'wpseo_use_page_analysis', '__return_false' );
