@@ -65,6 +65,11 @@ $fh_gf_responsive_break_at: $screen-sm-min !default;
 	margin: 0 0 10px 0;
 }
 
+// Field description
+.gform_wrapper .gfield_description {
+	@extend .help-block;
+}
+
 // Radios/checks
 .gfield_checkbox,
 .gfield_radio {

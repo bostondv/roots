@@ -24,21 +24,6 @@ $roots_includes = array(
   'lib/extras.php',          // Custom functions
 );
 
-/**
- * Add gravity forms if theme supports it
- */
-if ( current_theme_supports('gravity-forms') ) {
-  $roots_includes[] = 'lib/gravity-forms.php';
-}
-
-/**
- * Add woocommerce if theme supports it
- */
-if ( current_theme_supports('woocommerce') &&
-     in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-  $roots_includes[] = 'lib/woocommerce.php';
-}
-
 foreach ($roots_includes as $file) {
   if (!$filepath = locate_template($file)) {
     trigger_error(sprintf(__('Error locating %s for inclusion', 'roots'), $file), E_USER_ERROR);
@@ -47,3 +32,18 @@ foreach ($roots_includes as $file) {
   require_once $filepath;
 }
 unset($file, $filepath);
+
+/**
+ * Add gravity forms if theme supports it
+ */
+if ( current_theme_supports('gravity-forms') ) {
+  require_once 'lib/gravity-forms.php';
+}
+
+/**
+ * Add woocommerce if theme supports it
+ */
+if ( current_theme_supports('woocommerce') &&
+     in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+  require_once 'lib/woocommerce.php';
+}
