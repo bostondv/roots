@@ -1,6 +1,7 @@
 ### 7.1.0
-* Remove clean up and relative urls from theme in favour of using Soil plugin
 * Responsive embeds using Bootstrap responsive embeds code
+* Move clean up, relative URLs, and nice search to [Soil](https://github.com/roots/soil)
+* Move [community translations](https://github.com/roots/roots-translations) to separate repository
 
 ### 7.0.0
 * Merge roots upstream
