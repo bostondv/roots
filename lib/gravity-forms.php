@@ -1,6 +1,34 @@
 <?php
 
 /**
+ * Load gravity forms in the footer
+ */
+add_filter( 'gform_init_scripts_footer', '__return_true' );
+
+/**
+ * Disable gravity forms css
+ */
+function soil_remove_gravityforms_style() {
+  global $wp_styles;
+  if ( isset($wp_styles->registered['gforms_reset_css']) ) {
+    unset( $wp_styles->registered['gforms_reset_css'] );
+  }
+  if ( isset($wp_styles->registered['gforms_formsmain_css']) ) {
+    unset( $wp_styles->registered['gforms_formsmain_css'] );
+  }
+  if ( isset($wp_styles->registered['gforms_ready_class_css']) ) {
+    unset( $wp_styles->registered['gforms_ready_class_css'] );
+  }
+  if ( isset($wp_styles->registered['gforms_browsers_css']) ) {
+    unset( $wp_styles->registered['gforms_browsers_css'] );
+  }
+  if ( isset($wp_styles->registered['gforms_datepicker_css']) ) {
+    unset( $wp_styles->registered['gforms_datepicker_css'] );
+  }
+}
+add_action( 'gform_enqueue_scripts', 'soil_remove_gravityforms_style' );
+
+/**
  * Multi-column Gravity Forms
  *
  * How to use:
