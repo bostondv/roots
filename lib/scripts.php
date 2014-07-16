@@ -16,6 +16,10 @@ function roots_scripts() {
     wp_enqueue_script('comment-reply');
   }
 
+  wp_deregister_script('jquery');
+  wp_register_script('jquery', '/wp-includes/js/jquery/jquery.js', false, null, true);
+  wp_enqueue_script('jquery');
+
   wp_register_script('roots_scripts', get_template_directory_uri() . '/build/js/main.js', array('jquery'), null, true);
   wp_enqueue_script('roots_scripts');
 }
@@ -26,14 +30,6 @@ function roots_admin_scripts() {
   wp_enqueue_script('admin_scripts');
 }
 add_action('admin_enqueue_scripts', 'roots_admin_scripts', 100);
-
-function roots_remove_jquery_migrate( &$scripts ){
-  if(!is_admin()) {
-    $scripts->remove( 'jquery');
-    $scripts->add( 'jquery', false, array( 'jquery-core' ) );
-  }
-}
-add_filter( 'wp_default_scripts', 'roots_remove_jquery_migrate' );
 
 /**
  * Google Analytics snippet from HTML5 Boilerplate
