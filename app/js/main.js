@@ -23,10 +23,6 @@ var Roots = {
   common: {
     init: function() {
       // JS here
-
-      // Run fitVids on main content
-      $('.main').fitVids();
-
     },
     finalize: function() { }
   },
