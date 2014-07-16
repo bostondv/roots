@@ -28,3 +28,30 @@ function roots_wp_title($title) {
   return $title;
 }
 add_filter('wp_title', 'roots_wp_title', 10);
+
+/**
+ * Set low priorty for WordPress SEO metabox
+ */
+add_filter( 'wpseo_metabox_prio', function() {
+  return 'low';
+});
+
+/**
+ * Remove WordPress SEO columns
+ */
+add_filter( 'wpseo_use_page_analysis', '__return_false' );
+
+/**
+ * Remove TablePress CSS
+ **/
+add_filter('tablepress_use_default_css', '__return_false');
+
+/**
+ * Hide ACF admin on production and staging
+ **/
+function my_remove_acf_menu() {
+  if ( WP_ENV === 'production' || WP_ENV === 'staging' ) {
+    remove_menu_page('edit.php?post_type=acf-field-group');
+  }
+}
+add_action( 'admin_menu', 'my_remove_acf_menu', 999 );
