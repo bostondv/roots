@@ -50,7 +50,7 @@ add_filter('tablepress_use_default_css', '__return_false');
  * Hide ACF admin on production and staging
  **/
 function my_remove_acf_menu() {
-  if ( WP_ENV === 'production' || WP_ENV === 'staging' ) {
+  if ( defined( 'WP_ENV' ) && ( WP_ENV === 'production' || WP_ENV === 'staging' ) ) {
     remove_menu_page('edit.php?post_type=acf-field-group');
   }
 }
