@@ -36,14 +36,14 @@ unset($file, $filepath);
 /**
  * Add gravity forms if theme supports it
  */
-if ( current_theme_supports('gravity-forms') ) {
+if (current_theme_supports('gravity-forms')) {
   require_once 'lib/gravity-forms.php';
 }
 
 /**
  * Add woocommerce if theme supports it
  */
-if ( current_theme_supports('woocommerce') &&
-     in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+if (current_theme_supports('woocommerce') &&
+    in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
   require_once 'lib/woocommerce.php';
 }
