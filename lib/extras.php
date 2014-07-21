@@ -30,6 +30,17 @@ function roots_wp_title($title) {
 add_filter('wp_title', 'roots_wp_title', 10);
 
 /**
+ * Wrap embedded media using Bootstrap responsive embeds
+ *
+ * @link http://getbootstrap.com/components/#responsive-embed
+ */
+function roots_embed_wrap($cache, $url, $attr = '', $post_ID = '') {
+  $cache = str_replace('<iframe', '<iframe class="embed-responsive-item"', $cache);
+  return '<div class="embed-responsive embed-responsive-16by9">' . $cache . '</div>';
+}
+add_filter('embed_oembed_html', 'roots_embed_wrap', 20, 4);
+
+/**
  * Set low priorty for WordPress SEO metabox
  */
 add_filter('wpseo_metabox_prio', function() {
