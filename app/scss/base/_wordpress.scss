@@ -1,53 +1,48 @@
 /*------------------------------------*\
-  $WORDPRESS GENERATED CLASSES
+  $WORDPRESS POST CLASSES
   Basic rules for styling WordPress
-  classes.
+  post content classes with Bootstrap.
 \*------------------------------------*/
+
+/* Alignment */
 
 .aligncenter {
   display: block;
-  margin-left: auto;
   margin-right: auto;
-  margin-bottom: $line-height-computed / 2;
+  margin-left: auto;
 }
 
 .alignleft {
   float: left;
-  margin: 0 ($line-height-computed / 2) ($line-height-computed / 2) 0;
+  margin-right: $line-height-computed;
 }
 
 .alignright {
   float: right;
-  margin: 0 0 ($line-height-computed / 2) ($line-height-computed / 2);
+  margin-left: $line-height-computed;
 }
 
-.alignnone {
-  margin: 0 0 ($line-height-computed / 2);
+/* Images and captions */
+
+img {
+  @include img-responsive('inline-block');
 }
 
-.gallery-row {
+img[class*="wp-image-"] {
   margin-bottom: $line-height-computed / 2;
-}
-
-.gallery-thumbnail {
-  display: block;
-}
-
-.gallery .caption {
-  margin-top: $padding-base-vertical;
 }
 
 .wp-caption {
   max-width: 100%;
-}
-
-.wp-caption .caption {
-  margin-top: $padding-base-vertical;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
+  img {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  &.alignnone,
+  &.aligncenter {
+    clear: both;
+    @include clearfix();
+  }
 }
 
 video {

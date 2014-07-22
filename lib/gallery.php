@@ -90,20 +90,20 @@ function roots_gallery($attr) {
         $image = wp_get_attachment_link($id, $size, false, false);
         break;
       case 'none':
-        $image = wp_get_attachment_image($id, $size, false, array('class' => 'gallery-thumbnail'));
+        $image = wp_get_attachment_image($id, $size, false, false);
         break;
       default:
         $image = wp_get_attachment_link($id, $size, true, false);
         break;
     }
     $output .= ($i % $columns == 0) ? '<div class="row gallery-row">': '';
-    $output .= '<div class="' . $grid .'">' . $image;
+    $output .= '<div class="' . $grid .'"><div class="thumbnail">' . $image;
 
     if (trim($attachment->post_excerpt)) {
       $output .= '<div class="caption">' . wptexturize($attachment->post_excerpt) . '</div>';
     }
 
-    $output .= '</div>';
+    $output .= '</div></div>';
     $i++;
     $output .= ($i % $columns == 0) ? '</div>' : '';
   }

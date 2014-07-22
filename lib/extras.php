@@ -30,6 +30,14 @@ function roots_wp_title($title) {
 add_filter('wp_title', 'roots_wp_title', 10);
 
 /**
+ * Add .thumbnail class to captions
+ */
+function roots_caption($output, $attr, $content) {
+  return str_replace('class="wp-caption', 'class="wp-caption thumbnail', $output);
+}
+add_filter('img_caption_shortcode', 'roots_caption', 15, 3);
+
+/**
  * Wrap embedded media using Bootstrap responsive embeds
  *
  * @link http://getbootstrap.com/components/#responsive-embed
