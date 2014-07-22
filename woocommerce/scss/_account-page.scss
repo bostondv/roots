@@ -1,0 +1,25 @@
+.woocommerce, .woocommerce-page {
+
+	/*** Order Updates ***/
+	ol.commentlist.notes li.note {
+		p.meta {
+			font-weight:bold;
+			margin-bottom: 0;
+		}
+	}
+
+	ul.digital-downloads {
+		margin-left: 0;
+		padding-left: 0;
+
+		li {
+			list-style: none;
+			margin-left: 0;
+			padding-left: 0;
+
+			.count {
+				float: right;
+			}
+		}
+	}
+}

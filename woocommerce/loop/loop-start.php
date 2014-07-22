@@ -8,4 +8,3 @@
  */
 ?>
 <div class="products">
-  <div class="row">
