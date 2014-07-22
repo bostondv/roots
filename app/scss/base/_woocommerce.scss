@@ -146,6 +146,10 @@ form.cart {
   }
 }
 
+.shop_table td {
+  vertical-align: middle;
+}
+
 .product_meta {
   margin-bottom: $line-height-computed / 2;
 }
@@ -497,12 +501,6 @@ form.login .form-row:not(.form-row-wide) {
 .myaccount_user {
   @extend .alert;
   @extend .alert-warning;
-}
-
-.my_account_orders {
-  tr.order td {
-    vertical-align: middle;
-  }
 }
 
 .my-account {
