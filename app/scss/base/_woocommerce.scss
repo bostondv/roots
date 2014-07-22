@@ -26,6 +26,15 @@ input.plus,
   @extend .btn-default;
 }
 
+input.qty {
+  -moz-appearance: textfield;
+  &::-webkit-inner-spin-button, 
+  &::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+  }
+}
+
 .place-order .button {
   @extend .btn-block;
   @extend .btn-lg;
