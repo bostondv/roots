@@ -22,7 +22,7 @@
 }
 
 .alignnone {
-  margin: 0 ($line-height-computed / 2) ($line-height-computed / 2) 0;
+  margin: 0 0 ($line-height-computed / 2);
 }
 
 .gallery-row {
@@ -35,6 +35,10 @@
 
 .gallery .caption {
   margin-top: $padding-base-vertical;
+}
+
+.wp-caption {
+  max-width: 100%;
 }
 
 .wp-caption .caption {
