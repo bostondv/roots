@@ -8,7 +8,7 @@ add_filter('gform_init_scripts_footer', '__return_true');
 /**
  * Disable gravity forms css
  */
-function soil_remove_gravityforms_style() {
+function roots_remove_gravityforms_style() {
   global $wp_styles;
   if (isset($wp_styles->registered['gforms_reset_css'])) {
     unset($wp_styles->registered['gforms_reset_css']);
@@ -26,7 +26,7 @@ function soil_remove_gravityforms_style() {
     unset($wp_styles->registered['gforms_datepicker_css']);
   }
 }
-add_action('gform_enqueue_scripts', 'soil_remove_gravityforms_style');
+add_action('gform_enqueue_scripts', 'roots_remove_gravityforms_style');
 
 /**
  * Multi-column Gravity Forms

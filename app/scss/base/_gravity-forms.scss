@@ -1,295 +1,262 @@
-//
-//	Folkhack's Gravity Forms styling
-//
-//	Table of Contents:
-//	- Variables/configuration
-//	- General fixes
-//	- Required *
-//	- input, select, and textarea elemnt extends
-//	- Button extend
-//	- Error/notification messages handling
-//	- Gravity Forms complex containers
-//	- Weird-ass clear-multi shit
-//	- Date fields
-//	- Lists
-//	- General Datepicker
-//	- Folkhack's jQuery UI Datepicker: (DEPRECIATED!)
-//  - Validation container
-//
-//
-//	Based on:
-//	- http://roots.io/style-gravity-forms-with-bootstrap/
-//	- https://gist.github.com/Gavrisimo/8406309
-//	- https://gist.github.com/spigists/6796258
-//
-//	TODO:
-//	- Clean this up once Gravity Forms more-or-less gets their shit more together
-//	- Rip apart provided Gravity Forms CSS and implement all specific feature-sets
-//	- Better handling of date-fields, currently drop-down dates are AOK to use
-//
+/*------------------------------------*\
+  $GRAVITY FORMS BOOTSTRAP
+  Rules for styling Gravity Forms
+  with Bootstrap.
+\*------------------------------------*/
 
+/* Break-point for complex fields */
 
-//
-//	Variables/configuration:
-//
-
-// Setup a reasonable responsive break-point for complex fields
 $fh_gf_responsive_break_at: $screen-sm-min !default;
 
+/* General fixes */
 
-//
-//	General fixes:
-//
+.gform_wrapper:not(.gform_columns) ul {
+  padding-left: 0;
+  list-style: none;
+}
 
-// Field/form container styling:
-.gform_wrapper:not(.gform_columns) ul { @extend .list-unstyled; }
-.gform_wrapper li { @extend .form-group; }
-.gform_wrapper form { margin-bottom: 0; }
+.gform_wrapper li {
+  margin-bottom: 15px;
+}
+
+.gform_wrapper form {
+  margin-bottom: 0;
+}
 
 .gform_columns ul {
-	list-style: none;
-	margin-bottom: 0;
-	ul {
-		@extend .list-unstyled;
-	}
+  list-style: none;
+  margin-bottom: 0;
+  ul {
+    padding-left: 0;
+    list-style: none;
+  }
 }
 
-.gform_footer { @extend .form-group; }
+.gform_footer {
+  margin-bottom: 15px;
+}
 
-// Field container clear
-.gfield { clear: both; }
+/* Field container clear */
 
-// Form description
+.gfield {
+  clear: both;
+}
+
+/* Form description */
+
 .gform_heading .gform_description {
-	display: block;
-	margin: 0 0 10px 0;
+  display: block;
+  margin: 0 0 10px 0;
 }
 
-// Field description
+/* Field description */
+
 .gform_wrapper .gfield_description {
-	@extend .help-block;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: lighten($text-color, 25%);
 }
 
-// Radios/checks
+/* Radios/checks */
+
 .gfield_checkbox,
 .gfield_radio {
-	margin: 0 0 0 10px;
-	label {
-		font-weight: normal;
-		margin-left: 10px;
-	}
-	li { margin-bottom: 0px; }
+  margin: 0 0 0 10px;
+  label {
+    font-weight: normal;
+    margin-left: 10px;
+  }
+  li {
+    margin-bottom: 0px;
+  }
 }
 
-// Multiple select and textarea height fixes
-.ginput_container select[multiple] { height: auto; }
-.ginput_container textarea { height: auto; }
+/* Multiple select and textarea height fixes */
 
+.ginput_container select[multiple] {
+  height: auto;
+}
 
-//
-//	Required *:
-//
+.ginput_container textarea {
+  height: auto;
+}
+
+/* Required asterisk */
+
 .gform_wrapper .gfield_required {
-	color: $state-danger-text;
-	padding-left: 3px;
+  color: $state-danger-text;
+  padding-left: 3px;
 }
 
+/* input, select, and textarea classes modified in js */
+/* button classes modified in js */
 
-//
-//	input, select, and textarea element extends:
-//
-.ginput_container {
-	input[type="text"],
-  input[type="email"],
-  input[type="search"],
-  input[type="url"],
-  input[type="tel"],
-  input[type="number"],
-  input[type="date"],
-  input[type="time"],
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[type="month"],
-  input[type="week"],
-  input[type="password"],
+
+/* Error/notification messages handling */
+
+.gform_wrapper .gfield_error {
+  .gfield_label {
+    color: $state-danger-text;
+  }
+  input,
   select,
   textarea {
-		@extend .form-control;
-	}
+    background-color: $alert-danger-bg;
+    border-color: $alert-danger-border;
+    color: $alert-danger-text;
+    @include form-control-focus($alert-danger-text);
+  }
 }
 
-
-//
-//	Button extend:
-//
-.gform_button {
-	@extend .btn;
-	@extend .btn-primary;
-}
-
-
-//
-//	Error/notification messages handling:
-//
-.gform_wrapper .gfield_error {
-	.gfield_label { color: $state-danger-text; }
-	input,
-	select,
-	textarea {
-		background-color: $alert-danger-bg;
-		border-color: $alert-danger-border;
-		color: $alert-danger-text;
-		@include form-control-focus( $alert-danger-text );
-	}
-}
-.validation_error {
-	@extend .alert;
-	@extend .alert-danger;
-}
 .validation_message {
-	font-style: italic;
-	margin-top: 5px;
+  font-style: italic;
+  margin-top: 5px;
 }
-#gforms_confirmation_message { @extend .alert; }
 
 
-//
-//	Gravity Forms complex containers:
-//	- based on discussion from http://roots.io/style-gravity-forms-with-bootstrap/
-//	- HELLA refactored to SCSS/responsive sanity =/
-//
+/* Complex containers:
+ * - based on discussion from http://roots.io/style-gravity-forms-with-bootstrap/
+ *- HELLA refactored to SCSS/responsive sanity */
+
 .ginput_complex {
 
-	// Add a 10px gray border to the left side of complex groupings
-	border-left: 10px $gray-lighter solid;
-	display: block;
-	padding: 10px 0 0 20px;
+  // Add a 10px gray border to the left side of complex groupings
+  border-left: 10px $gray-lighter solid;
+  display: block;
+  padding: 10px 0 0 20px;
 
-	// Fix label font weight and top spacing
-	label {
-		font-weight: normal;
-		margin: 5px 0 15px 0;
-	}
-	span:last-of-type label { margin: 5px 0 0 0; }
+  // Fix label font weight and top spacing
+  label {
+    font-weight: normal;
+    margin: 5px 0 15px 0;
+  }
+  span:last-of-type label {
+    margin: 5px 0 0 0;
+  }
 
-	// Full-width container
-	.ginput_full { width: 100%; }
+  // Full-width container
+  .ginput_full { width: 100%; }
 
-	// Left/right containers (ex: first/last name)
-	.ginput_left,
-	.ginput_right {
-		float: left;
-		width: 50%;
-	}
+  // Left/right containers (ex: first/last name)
+  .ginput_left,
+  .ginput_right {
+    float: left;
+    width: 50%;
+  }
 
-	// Inputs and labels
-	.ginput_full {
-		input,
-		label {
-			width: 100% !important;
-		}
-	}
-	.ginput_left {
-		input,
-		select,
-		textarea,
-		label {
-			width: 95% !important;
-		}
-	}
+  // Inputs and labels
+  .ginput_full {
+    input,
+    label {
+      width: 100% !important;
+    }
+  }
+  .ginput_left {
+    input,
+    select,
+    textarea,
+    label {
+      width: 95% !important;
+    }
+  }
 
-	// Responsive break for full-width input fields
-	@media screen and ( max-width: $fh_gf_responsive_break_at ) {
-		.ginput_full,
-		.ginput_left,
-		.ginput_right {
-			float: none;
-			width: 100% !important;
-			input { width: 100% !important; }
-			label { width: 100% !important; }
-		}
-	}
+  // Responsive break for full-width input fields
+  @media screen and ( max-width: $fh_gf_responsive_break_at ) {
+    .ginput_full,
+    .ginput_left,
+    .ginput_right {
+      float: none;
+      width: 100% !important;
+      input { width: 100% !important; }
+      label { width: 100% !important; }
+    }
+  }
 }
 
-// Add BS3 clearfix
-.gf_clear_complex { @extend .clearfix; }
+/* Add BS3 clearfix */
 
+.gf_clear_complex {
+  @include clearfix();
+}
 
-//
-//	Weird-ass clear-multi shit:
-//
+/* Weird-ass clear-multi */
+
 .clear-multi {
+  display: table;
+  @include clearfix();
 
-	display: table;
+  // Time/date fields
+  // - consider refactoring to be wrapped in .gfield_time_* and .gfield_date_*
+  //   keeping non-wrapped due to compiled CSS bloat. Keep an eye on this!
+  .ginput_container {
+    display: table-cell;
+    padding-left: 5px;
+    input {
+      width: 70px;
+    }
+    select {
+      width: 80px;
+    }
+    // Disable the labels for time
+    label {
+      display: none;
+    }
+  }
+  .ginput_container:first-child {
+    padding-left: 0;
+  }
 
-	// Add BS3 clearfix
-	@extend .clearfix;
+  // This is hack-y but fixes a rendering bug on Chrome
+  // TODO: clean this up
+  .gfield_time_hour,
+  .gfield_time_minute,
+  .gfield_time_ampm {
+    float: left;
+  }
 
-	// Time/date fields
-	// - consider refactoring to be wrapped in .gfield_time_* and .gfield_date_*
-	//   keeping non-wrapped due to compiled CSS bloat. Keep an eye on this!
-	.ginput_container {
-		display: table-cell;
-		padding-left: 5px;
-		input { width: 70px; }
-		select { width: 80px; }
-		// Disable the labels for time (yeahhh no need really)
-		label { display: none; }
-	}
-	.ginput_container:first-child { padding-left: 0; }
+  // Inline block so that input element aligns properly with ":"
+  .gfield_time_hour input {
+    display: inline-block;
+  }
 
-	// This is hack-y but fixes a rendering bug on Chrome
-	// TODO: clean this up
-	.gfield_time_hour,
-	.gfield_time_minute,
-	.gfield_time_ampm {
-		float: left;
-	}
-
-	// Inline block so that input element aligns properly with ":"
-	.gfield_time_hour input { display: inline-block; }
-
-	//
-	//	Date fields
-	//
-	.gfield_date_month,
-	.gfield_date_day,
-	.gfield_date_year {
-		// Re-enable the date field labels
-		label {
-			display: block;
-			font-weight: normal;
-		}
-	}
+  // Date fields
+  .gfield_date_month,
+  .gfield_date_day,
+  .gfield_date_year {
+    // Re-enable the date field labels
+    label {
+      display: block;
+      font-weight: normal;
+    }
+  }
 }
 
+/* Lists */
 
-//
-//	Lists:
-//
 .gfield_list {
-	// Offset the top padding for the cell spacing
-	margin-top: -5px;
-	tr .gfield_list_cell { padding: 5px 0; }
-	.gfield_list_icons {
-		vertical-align: middle !important;
-		width: 60px;
-		img { float: left; }
-	}
+  // Offset the top padding for the cell spacing
+  margin-top: -5px;
+  tr .gfield_list_cell {
+    padding: 5px 0;
+  }
+  .gfield_list_icons {
+    vertical-align: middle !important;
+    width: 60px;
+    img {
+      float: left;
+    }
+  }
 }
 
+/* General Datepicker */
 
-//
-//	General Datepicker:
-//
 .gfield .datepicker {
-	display: inline-block !important;
-	width: 170px !important;
+  display: inline-block !important;
+  width: 170px !important;
 }
 
-
-// Honeypot validation container
-// - hides .gform_validation_container
+/* Honeypot validation container */
 
 .gform_validation_container {
   display: none;
