@@ -3,7 +3,7 @@
  * Clean up the_excerpt()
  */
 function roots_excerpt_more($more) {
-  return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'roots') . '</a>';
+  return '&hellip; <a href="' . get_permalink() . '">' . __('Read More &rarr;', 'roots') . '</a>';
 }
 add_filter('excerpt_more', 'roots_excerpt_more');
 
@@ -16,37 +16,14 @@ function roots_excerpt_length($length) {
 add_filter('excerpt_length', 'roots_excerpt_length');
 
 /**
- * Manage output of wp_title()
+ * Change .hentry to .entry from post_class() because we use microdata
  */
-function roots_wp_title($title) {
-  if (is_feed()) {
-    return $title;
-  }
-
-  $title .= get_bloginfo('name');
-
-  return $title;
+function roots_post_class($classes) {
+  $key = array_search('hentry', $classes);
+  if ($key) $classes[$key] = 'entry';
+  return $classes;
 }
-add_filter('wp_title', 'roots_wp_title', 10);
-
-/**
- * Add .thumbnail class to captions
- */
-function roots_caption($output, $attr, $content) {
-  return str_replace('class="wp-caption', 'class="wp-caption thumbnail', $output);
-}
-add_filter('img_caption_shortcode', 'roots_caption', 15, 3);
-
-/**
- * Wrap embedded media using Bootstrap responsive embeds
- *
- * @link http://getbootstrap.com/components/#responsive-embed
- */
-function roots_embed_wrap($cache, $url, $attr = '', $post_ID = '') {
-  $cache = str_replace('<iframe', '<iframe class="embed-responsive-item"', $cache);
-  return '<div class="embed-responsive embed-responsive-16by9">' . $cache . '</div>';
-}
-add_filter('embed_oembed_html', 'roots_embed_wrap', 20, 4);
+add_filter('post_class', 'roots_post_class');
 
 /**
  * Set low priorty for WordPress SEO metabox
@@ -73,4 +50,4 @@ function roots_remove_acf_menu() {
     remove_menu_page('edit.php?post_type=acf-field-group');
   }
 }
-add_action( 'admin_menu', 'roots_remove_acf_menu', 999 );
+add_action('admin_menu', 'roots_remove_acf_menu', 999);

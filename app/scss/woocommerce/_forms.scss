@@ -1,0 +1,58 @@
+.woocommerce-page {
+
+	/** WooCommerce Forms **/
+	form {
+
+		.hidden {
+			visibility: hidden
+		}
+		.required {
+			color:$brand-danger;
+			font-weight: bold;
+			border: 0;
+		}
+		.form-row [placeholder]:focus::-webkit-input-placeholder {
+			transition: opacity .5s .5s ease;
+			opacity: 0
+		}
+		.form-row {
+			label {
+				&.checkbox {
+					display: inline;
+				}
+			}
+			.input-text {
+				width: 100%;
+			}
+
+			/** Validation **/
+			&.validate-required.woocommerce-invalid .chzn-single,
+			&.validate-required.woocommerce-invalid .chzn-drop,
+			&.validate-required.woocommerce-invalid input.input-text,
+			&.validate-required.woocommerce-invalid input.form-control,
+			&.validate-required.woocommerce-invalid select {
+				border-color: $brand-danger;
+			}
+		}
+		/** Form Columns **/
+		.form-row-first,
+		.form-row-last {
+			float: left;
+			width: 49%;
+			overflow: visible;
+		}
+		.form-row-last {
+			float: right;
+		}
+		.form-row-wide {
+			clear: both;
+		}
+		/** Coupons **/
+		&.login,
+		&.checkout_coupon,
+		&.register {
+			margin: 0 0 $line-height-computed;
+		}
+	}
+
+}

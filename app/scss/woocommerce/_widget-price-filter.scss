@@ -1,0 +1,68 @@
+.woocommerce-page {
+
+	/** Widget - Price Filter **/
+	.widget_price_filter {
+	
+		.price_slider {
+			margin-bottom: $line-height-computed;
+		}
+		.price_slider_amount {
+			text-align: right;
+			line-height: 2.4em;
+
+			.button {
+				float:left;
+			}
+		}
+		.ui-slider {
+			position: relative;
+			text-align: left;
+
+			.ui-slider-handle {
+				position: absolute;
+				z-index: 5;
+				width: .9em;
+				height: .9em;
+				border-radius: 1em;
+				border: 1px solid #150d14;
+				cursor: pointer;
+				background: lighten($brand-primary, 20%);
+				outline: 0;
+				top: -0.25em;
+				box-shadow: 0 1px 2px rgba(0,0,0,0.3),inset 0 0 0 1px rgba(255,255,255,0.65);
+
+				&:last-child {
+					margin-left: -0.9em
+				}
+			}
+			.ui-slider-range {
+				position: absolute;
+				z-index: 4;
+				font-size: .7em;
+				display: block;
+				border: 0;
+				background: lighten($brand-primary, 20%);
+				border: 1px solid #150d14;
+				border-radius: 1em
+			}
+		}
+		.price_slider_wrapper .ui-widget-content {
+			border-radius: 1em;
+			background: #1e1e1e;
+		}
+		.ui-slider-horizontal {
+			height: .5em;
+
+			.ui-slider-range {
+				top: 0;
+				height: 100%
+			}
+			.ui-slider-range-min {
+				left: -1px
+			}
+			.ui-slider-range-max {
+				right: -1px
+			}
+		}
+	}
+}

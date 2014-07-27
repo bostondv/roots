@@ -1,0 +1,25 @@
+.woocommerce-page {
+
+	.quantity {
+		max-width: 110px;
+		position: relative;
+		margin: 0;
+		overflow: hidden;
+
+		input::-webkit-inner-spin-button {
+			display:none
+		}
+
+		input {
+			-moz-appearance: textfield;
+		}
+
+		@media (max-width: $screen-xs-max) {
+			max-width: 50px;
+			.input-group-btn {
+				display: none;
+			}
+		}
+	}
+
+}

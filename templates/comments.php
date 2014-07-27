@@ -40,15 +40,15 @@
 <section id="respond">
   <?php if (comments_open()) : ?>
     <h3><?php comment_form_title(__('Leave a Reply', 'roots'), __('Leave a Reply to %s', 'roots')); ?></h3>
-    <p class="cancel-comment-reply"><?php cancel_comment_reply_link(); ?></p>
+    <p class="cancel-comment-reply"><?php cancel_comment_reply_link(__('Cancel Reply', 'roots')); ?></p>
     <?php if (get_option('comment_registration') && !is_user_logged_in()) : ?>
       <p><?php printf(__('You must be <a href="%s">logged in</a> to post a comment.', 'roots'), wp_login_url(get_permalink())); ?></p>
     <?php else : ?>
-      <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
+      <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform" role="form">
         <?php if (is_user_logged_in()) : ?>
           <p>
             <?php printf(__('Logged in as <a href="%s/wp-admin/profile.php">%s</a>.', 'roots'), get_option('siteurl'), $user_identity); ?>
-            <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="<?php _e('Log out of this account', 'roots'); ?>"><?php _e('Log out &raquo;', 'roots'); ?></a>
+            <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="<?php _e('Log out of this account', 'roots'); ?>" class="btn btn-default btn-xs"><?php _e('Log out', 'roots'); ?></a>
           </p>
         <?php else : ?>
           <div class="form-group">

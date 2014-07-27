@@ -10,11 +10,12 @@
   <?php
     do_action('get_header');
     get_template_part('templates/header');
+    get_template_part('templates/banner');
   ?>
 
   <div class="wrap container" role="document">
     <div class="content row">
-      <main class="main <?php echo roots_main_class(); ?>" role="main">
+      <main class="main <?php echo roots_main_class(); ?>" role="main" itemscope itemtype="http://schema.org/Article">
         <?php include roots_template_path(); ?>
       </main><!-- /.main -->
       <?php if (roots_display_sidebar()) : ?>

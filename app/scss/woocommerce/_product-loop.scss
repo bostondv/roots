@@ -1,0 +1,39 @@
+.woocommerce-page {
+
+	/* Product Loop */
+	.products {
+		margin: 0 0 $line-height-computed;
+		padding: 0;
+		list-style: none outside;
+		clear: both;
+
+		&:after {
+			@include clearfix();
+		}
+		.product { 
+			padding: $padding-base-vertical $padding-base-horizontal;
+			position: relative;
+			margin-bottom: $line-height-computed;
+
+			.count.badge {
+				font-size: $font-size-base;
+			}
+		}
+		.product-category {
+			padding-bottom: $line-height-computed;
+		}
+	}
+
+	.results-count-panel {
+		border: none;
+		box-shadow: none;
+		
+		.panel-body {
+			padding: 0;
+		}
+	}
+	.results-count {
+		line-height: 2em;
+	}
+
+}

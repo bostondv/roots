@@ -11,7 +11,7 @@ function roots_title() {
     }
   } elseif (is_archive()) {
     $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
-    if (is_woocommerce()) {
+    if (function_exists('is_woocommerce') && is_woocommerce()) {
       return woocommerce_page_title();
     } elseif ($term) {
       return apply_filters('single_term_title', $term->name);

@@ -15,13 +15,20 @@ $roots_includes = array(
   'lib/wrapper.php',         // Theme wrapper class
   'lib/sidebar.php',         // Sidebar class
   'lib/config.php',          // Configuration
-  'lib/activation.php',      // Theme activation
   'lib/titles.php',          // Page titles
-  'lib/nav.php',             // Custom nav modifications
-  'lib/gallery.php',         // Custom [gallery] modifications
-  'lib/comments.php',        // Custom comments modifications
   'lib/scripts.php',         // Scripts and stylesheets
   'lib/extras.php',          // Custom functions
+  'lib/extensions/breadcrumbs.php',
+  'lib/extensions/bootstrap-comments.php',
+  'lib/extensions/bootstrap-breadcrumbs.php',
+  'lib/extensions/bootstrap-gravity-forms.php',
+  'lib/extensions/bootstrap-nav-walker.php',
+  'lib/extensions/bootstrap-pagination.php',
+  'lib/extensions/bootstrap-woocommerce.php',
+  'lib/extensions/bootstrap-media.php',
+  'lib/extensions/gravity-forms-multi-column.php',
+  'lib/extensions/woocommerce-core.php',
+  'lib/extensions/wp-link-pages-extended.php'
 );
 
 foreach ($roots_includes as $file) {
@@ -32,18 +39,3 @@ foreach ($roots_includes as $file) {
   require_once $filepath;
 }
 unset($file, $filepath);
-
-/**
- * Add gravity forms if theme supports it
- */
-if (current_theme_supports('gravity-forms')) {
-  require_once 'lib/gravity-forms.php';
-}
-
-/**
- * Add woocommerce if theme supports it
- */
-if (current_theme_supports('woocommerce') &&
-    in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
-  require_once 'lib/woocommerce.php';
-}

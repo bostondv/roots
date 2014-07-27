@@ -1,0 +1,76 @@
+.woocommerce-page {
+
+	/* Product Thumbnails */
+	.product-thumbnail {
+		text-align: center;
+	}
+
+	.product-thumbnail a.thumbnail {
+		display: inline-block;
+		margin: 0;
+	}
+
+	.cart_item td {
+		vertical-align: middle;
+	}
+
+	/** Order Table Specific **/
+	td.product-name {
+		
+		/** Order - Variations **/
+		dl.variation {
+			margin: 0;
+			dt {
+				font-weight: bold;
+				display: inline-block;
+			}
+			dd {
+				display: inline-block;
+			}
+		}
+		/** Cart Backorder Notification **/
+		p.backorder_notification {
+			font-size: $font-size-small;
+		}
+		
+	}
+
+	/* Cart Actions */
+	.actions {
+		text-align: right;
+		.coupon {
+			float:left
+		}
+		@media (max-width: $screen-xs-max) {
+			.btn,
+			.form-control {
+				display: block;
+				width: 100%;
+			}
+			.btn:not(:last-child) {
+				margin-bottom: 15px;
+			}
+		}
+	}
+
+	/** Cart Collaterals **/
+	.cart-collaterals {
+		width: 100%;
+
+		&:after {
+			@include clearfix();
+		}
+
+		/* Cart totals */
+		.cart_totals .discount td {
+			color: $brand-success;
+		}
+		
+		@media (min-width: $screen-sm-min) {
+			clear: right;
+			float: right;
+			width: 48%;
+		}
+	}
+
+}

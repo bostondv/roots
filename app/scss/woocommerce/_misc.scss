@@ -1,0 +1,27 @@
+.woocommerce-page {
+
+	/** Image Adjustments / Reset **/
+	.entry-content img {
+		border: none;
+		padding: 0;
+		border-radius: 0;
+	}
+
+	/** Misc **/
+	.panel-body .products {
+		margin-bottom: 0px;
+		
+		.product {
+			margin-bottom: 20px;
+		}
+	}
+
+	small.note {
+		display:block;
+		color:$gray-light;
+		font-size:11px;
+		line-height:21px;
+		margin-top:10px
+	}
+
+}

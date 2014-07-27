@@ -1,0 +1,41 @@
+/*------------------------------------*\
+  $WOOCOMMERCE
+  Some styles to fix Woocommerce core
+  issues with Bootstrap.
+\*------------------------------------*/
+
+.quantity.input-group {
+  max-width: 125px;
+}
+
+/* Checkout fields */
+
+@media (min-width: $screen-sm-min) {
+  .form-row-first,
+  .form-row-last {
+    width: 49%;
+  }
+  .form-row-wide {
+    clear: both;
+  }
+  .form-row-first {
+    float: left;
+  }
+  .form-row-last {
+    float: right;
+  }
+}
+
+.clear {
+  @include clearfix;
+}
+
+.address-field strong {
+  display: block;
+}
+
+abbr.required {
+  border: 0;
+  cursor: default;
+  color: $brand-danger;
+}

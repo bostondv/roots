@@ -6,9 +6,8 @@ add_theme_support('soil-clean-up');
 add_theme_support('soil-relative-urls');
 add_theme_support('soil-nice-search');
 add_theme_support('soil-disable-trackbacks');
-add_theme_support('bootstrap-gallery');
-add_theme_support('gravity-forms');
-add_theme_support('woocommerce');
+add_theme_support('soil-disable-asset-versioning');
+add_theme_support('numbered-pagination');
 
 /**
  * Configuration values

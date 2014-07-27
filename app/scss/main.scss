@@ -9,5 +9,36 @@
 @import "base/mixins";
 @import "base/wordpress";
 @import "base/gravity-forms";
+@import "woocommerce/woocommerce";
 
-/* Place or import your custom UI styles here */
+/*------------------------------------*\
+  Place or import your styles here
+  
+  A few basic styles have been included
+  for better defaults which may be
+  optionally removed or modified.
+\*------------------------------------*/
+
+.banner {
+  margin-bottom: 0;
+}
+
+.jumbotron {
+  padding: 0;
+  margin: 0;
+}
+
+.posts-list .entry {
+  border-bottom: 1px solid $gray-lighter;
+  padding-bottom: $line-height-computed;
+  margin-bottom: $line-height-computed;
+}
+
+.entry-byline,
+.entry-terms {
+  color: $gray-light;
+}
+
+.entry-title {
+  margin-top: 0;
+}

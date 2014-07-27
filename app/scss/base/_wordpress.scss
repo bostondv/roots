@@ -48,3 +48,15 @@ img[class*="wp-image-"] {
 video {
   max-width: 100%;
 }
+
+/* Indent nested comments */
+
+.comment .comment {
+  margin-left: 15px;
+}
+
+/* Break-word in titles */
+
+.entry-title {
+  word-wrap: break-word;
+}
