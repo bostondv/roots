@@ -1,23 +1,29 @@
-/*------------------------------------*\
-  $STYLES
-\*------------------------------------*/
+/*-------------------------------------------------*\
+  $MAIN
+\*-------------------------------------------------*/
+
+/*-------------------------------------------------*\
+  $IMPORTS
+  Add or remove libraries as needed below. If you
+  don't need a library, remove it to reduce overall
+  file size.
+\*-------------------------------------------------*/
 
 @import "vars";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap/bootstrap";
 @import "font-awesome/scss/font-awesome";
-
 @import "base/mixins";
 @import "base/wordpress";
 @import "gravity-forms/gravity-forms";
 @import "woocommerce/woocommerce";
 
-/*------------------------------------*\
-  Place or import your styles here
-  
-  A few basic styles have been included
-  for better defaults which may be
-  optionally removed or modified.
-\*------------------------------------*/
+
+/*-------------------------------------------------*\
+  $CUSTOM STYLES
+  A few basic styles have been included for better
+  defaults which may be optionally removed or
+  modified.
+\*-------------------------------------------------*/
 
 .banner {
   margin-bottom: 0;
