@@ -33,13 +33,10 @@ $classes = array( 'col-xs-6 col-sm-3' );
 
 if ( 0 == ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 == $woocommerce_loop['columns'] ) {
 	$classes[] = 'first';
-	echo '<div class="row">';
-	$woocommerce_loop['close_row'] = true ;
 }
 
 if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 	$classes[] = 'last';
-	$woocommerce_loop['close_row'] = false;
 }
 
 ?>
@@ -82,4 +79,4 @@ if ( ($woocommerce_loop['loop'])%2 == 0 )
 	echo '<div class="clearfix visible-xs"></div>';
 
 if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
-	echo '</div><!-- .row -->';
+	echo '</div><div class="row">';

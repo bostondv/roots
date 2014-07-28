@@ -9,18 +9,9 @@
     <?php echo get_the_date(); ?>
   </time>
   <?php if (comments_open()) : ?>
-    <?php (int) $num = get_comments_number(); ?>
     <span class="separator">|</span>
     <a href="<?php comments_link(); ?>" class="entry-link" itemprop="url">
-      <?php
-      if ($num === 0) {
-        echo __('Leave a response', 'roots');
-      } elseif ($num === 1) {
-        echo sprintf(__('%1$s Response', 'roots'), $num);
-      } elseif ($num > 1) {
-        echo sprintf(__('%1$s Responses', 'roots'), $num);
-      }
-      ?>
+      <?php comments_number(__('No responses', 'roots'), __('One response', 'roots'), __('% responses', 'roots')); ?>
     </a>
   <?php endif; ?>
 </p>

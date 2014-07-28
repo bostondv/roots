@@ -10,32 +10,31 @@
  * @link https://github.com/roots/roots/pull/1042
  */
 $roots_includes = array(
-  'lib/utils.php',           // Utility functions
-  'lib/init.php',            // Initial theme setup and constants
-  'lib/wrapper.php',         // Theme wrapper class
-  'lib/sidebar.php',         // Sidebar class
-  'lib/config.php',          // Configuration
-  'lib/titles.php',          // Page titles
-  'lib/scripts.php',         // Scripts and stylesheets
-  'lib/extras.php',          // Custom functions
-  'lib/extensions/breadcrumbs.php',
-  'lib/extensions/bootstrap-comments.php',
-  'lib/extensions/bootstrap-breadcrumbs.php',
-  'lib/extensions/bootstrap-gravity-forms.php',
-  'lib/extensions/bootstrap-nav-walker.php',
-  'lib/extensions/bootstrap-pagination.php',
-  'lib/extensions/bootstrap-woocommerce.php',
-  'lib/extensions/bootstrap-media.php',
-  'lib/extensions/gravity-forms-multi-column.php',
-  'lib/extensions/woocommerce-core.php',
-  'lib/extensions/wp-link-pages-extended.php'
+  'lib/utils.php',
+  'lib/init.php',
+  'lib/wrapper.php',
+  'lib/sidebar.php',
+  'lib/config.php',
+  'lib/titles.php',
+  'lib/scripts.php',
+  'lib/extras.php',
+  'lib/breadcrumbs.php',
+  'lib/link-pages.php',
+  'lib/bootstrap/comments.php',
+  'lib/bootstrap/breadcrumbs.php',
+  'lib/bootstrap/nav-walker.php',
+  'lib/bootstrap/pagination.php',
+  'lib/bootstrap/media.php',
+  'lib/bootstrap/gravity-forms.php',
+  'lib/bootstrap/woocommerce.php',
+  'lib/gravity-forms/multi-column.php',
+  'lib/woocommerce/core.php'
 );
 
 foreach ($roots_includes as $file) {
   if (!$filepath = locate_template($file)) {
     trigger_error(sprintf(__('Error locating %s for inclusion', 'roots'), $file), E_USER_ERROR);
   }
-
   require_once $filepath;
 }
 unset($file, $filepath);
