@@ -221,12 +221,12 @@ function roots_nav_menu_css_class($classes, $item) {
 
   return array_filter($classes, 'is_element_empty');
 }
-//add_filter('nav_menu_css_class', 'roots_nav_menu_css_class', 10, 2);
+add_filter('nav_menu_css_class', 'roots_nav_menu_css_class', 10, 2);
 add_filter('nav_menu_item_id', '__return_null');
 
 /**
  * Clean up wp_nav_menu_args
- * Use Bootstrap_Walker_Nav_Menu() by default
+ * Use wp_bootstrap_navwalker() by default
  */
 function roots_nav_menu_args($args = '') {
   $roots_nav_menu_args['container'] = false;

@@ -3,4 +3,5 @@
   <footer>
     <?php get_template_part('templates/pagination'); ?>
   </footer>
+  <?php comments_template('/templates/comments.php'); ?>
 </article>
