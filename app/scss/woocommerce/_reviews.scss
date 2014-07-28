@@ -102,12 +102,12 @@
 		float: right;
 		overflow: hidden;
 		position: relative;
-		height: 1em;
-		line-height: 1em;
-		font-size: 1em;
-		width: 5.25em;
+		height: $font-size-base;
+		line-height: $font-size-base;
+		font-size: $font-size-base;
+		width: 5.3em;
 		font-family: 'star';
-		color: gold;
+		color: #FFD700;
 
 		span {
 			overflow: hidden;
@@ -125,7 +125,7 @@
 		}
 		&:before {
 			content: "\73\73\73\73\73";
-			color: $gray-lighter;
+			color: $gray-light;
 			float: left;
 			top: 0;
 			left: 0;
@@ -160,74 +160,77 @@
 
 	/** Stars **/
 	p.stars {
-
+		height: $font-size-base;
 		&:after {
 			@include clearfix();
 		}	
 		span {
-			width:80px;
-			height:16px;
-			position:relative;
-			float:left;
-			background:url(woocommerce/images/star.png) repeat-x left 0;
-
+			width: 5.3em;
+			height: $font-size-base;
+			line-height: $font-size-base;
+			font-size: $font-size-base;
+			position: relative;
+			float: left;
+			font-family: 'star';
+			&:before {
+				position: absolute;
+				top: 0;
+				left: 0;
+				content: "\73\73\73\73\73";
+				color: $gray-light;
+				width: 100%;
+			}
 			a {
-				float:left;
-				position:absolute;
-				left:0;
-				top:0;
-				width:16px;
-				height:0;
-				padding-top:16px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: $font-size-base;
+				font-size: 0;
 				overflow: hidden;
-
+				opacity: 0;
+				&:before {
+					position: absolute;
+					top: 0;
+					left: 0;
+					font-size: $font-size-base;
+					background: #fff;
+					content: "\53\53\53\53\53";
+					color: #FFD700;
+					width: 100%;
+				}
 				&:hover,
 				&:focus {
-					background:url(woocommerce/images/star.png) repeat-x left -16px
+					opacity: 1;
+					cursor: pointer;
 				}
 				&.active {
-					background:url(woocommerce/images/star.png) repeat-x left -32px
+					opacity: 1;
+					&:before {
+						color: darken(#FFD700, 5%);
+					}
 				}
 				&.star-1 {
-					width:16px;
-					z-index:10;
+					width: 20%;
+					z-index: 10;
 				}
 				&.star-2 {
-					width:32px;
-					z-index:9;
+					width: 40%;
+					z-index: 9;
 				}
 				&.star-3 {
-					width:48px;
-					z-index:8;
+					width: 60%;
+					z-index: 8;
 				}
 				&.star-4 {
-					width:64px;
-					z-index:7;
+					width: 80%;
+					z-index: 7;
 				}
 				&.star-5 {
-					width:80px;
-					z-index:6;
+					width: 100%;
+					z-index: 6;
 				}
 			}
 		}
 	}
 
-	@media(-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi) {
-
-		p.stars span {
-			background-image:url(woocommerce/images/star@2x.png);
-			background-size:16px 48px;
-			a {
-				&:hover,
-				&:focus {
-					background-image:url(woocommerce/images/star@2x.png);
-					background-size:16px 48px
-				}
-				&.active {
-					background-image:url(woocommerce/images/star@2x.png);
-					background-size:16px 48px
-				}
-			}
-		}
-	}	
 }

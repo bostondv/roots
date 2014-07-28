@@ -70,6 +70,21 @@ function roots_display_sidebar() {
 }
 
 /**
+ * Define which pages should display jumbotron
+ */
+function roots_display_jumbotron() {
+  if (function_exists('is_woocommerce') && is_woocommerce()) {
+    $display = false;
+  } elseif (is_single()) {
+    $display = true;
+  } else {
+    $display = false;
+  }
+
+  return apply_filters('roots/display_jumbotron', $display);
+}
+
+/**
  * $content_width is a global variable used by WordPress for max image upload sizes
  * and media embeds (in pixels).
  *
