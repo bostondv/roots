@@ -1,0 +1,169 @@
+/*------------------------------------*\
+  $GRAVITY FORMS
+\*------------------------------------*/
+
+$gravity-image-path: "css/gravity/images/" !default;
+
+@import "datepicker";
+@import "readyclass";
+@import "field-description";
+@import "section-fields";
+@import "complex-fields";
+@import "validation-and-error";
+@import "hidden-fields";
+@import "radio-and-checkboxes";
+@import "html-fields";
+@import "date-time";
+@import "honey-pot";
+@import "simple-captcha";
+@import "math-challege";
+@import "textarea-char-counter";
+@import "pricing-fields";
+@import "multi-page-paging";
+@import "multi-page-progress-bar";
+@import "multi-page-steps";
+@import "password-strength-indicator";
+@import "html-field-list-reset";
+@import "list-fields";
+@import "chosen";
+@import "credit-card-icons";
+@import "credit-card-fields";
+@import "file-upload";
+
+.gform_wrapper{
+
+  input[type=image] {
+    border: none;
+    padding: 0;
+    width: auto;
+  }
+
+  textarea {
+    &.textarea {
+      width: 65%;
+    }
+    &.small {
+      height: 80px;
+    }
+    &.medium {
+      height: 150px;
+    }
+    &.large {
+      height: 250px;
+    }
+  }
+
+  ul {
+    @extend .list-unstyled;
+  }
+
+  .inline {
+    display: inline;
+  }
+
+  .gform_heading {
+    .gform_description {
+      display: block;
+      font-weight: normal;
+      margin-bottom: $line-height-computed;
+    }
+  }
+
+  .clear-multi {
+    @include clearfix();
+  }
+
+  .top_label {
+
+    input,
+    select {
+      
+      &.small {
+        width: 25%;
+      }
+      &.medium {
+        width: 49%;
+      }
+      &.large {
+        width: 100%;
+      }
+    }
+
+    textarea.textarea {
+      width: 100%;
+    }
+
+  }
+
+  .left_label,
+  .right_label {
+
+    input,
+    select {
+      &.small {
+        width: 15%;
+      }
+      &.medium {
+        width: 35%;
+      }
+      &.large {
+        width: 65%;
+      }
+    }
+  }
+
+  .top_label .gfield_label {
+    clear: both;
+  }
+
+  .left_label .gfield_label,
+  .right_label .gfield_label {
+    float: left;
+    width: 30%;
+    margin-right: 1%;
+  }
+
+  .right_label .gfield_label {
+    text-align: right;
+  }
+
+  .gform_footer {
+    padding: $line-height-computed 0 0;
+    margin: $line-height-computed 0 0;
+    border-top: 1px solid $gray-lighter;
+    clear: both;
+
+    &.right_label,
+    &.left_label {
+      padding: $line-height-computed 0 ($line-height-computed / 2) 31%;
+    }
+
+    input.button,
+    input[type=submit] {
+      font-size: $font-size-base;
+    }
+
+    input[type=image] {
+      padding: 0;
+      width: auto;
+      background: none;
+      border: none;
+    }
+  }
+
+  .gform_ajax_spinner {
+    padding-left: 10px;
+  }
+
+  .gf_submission_limit_message {
+    color: $brand-warning;
+    font-size: $font-size-large;
+  }
+
+}
+
+.gform_delete {
+  vertical-align: middle;
+  cursor: pointer;
+}
+

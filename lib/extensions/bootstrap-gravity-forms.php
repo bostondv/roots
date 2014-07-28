@@ -61,9 +61,9 @@ function add_form_control_class( $field_content, $field, $value, $something, $fo
 
         $x = new DOMXPath($dom);
 
-        foreach($x->query("//label") as $node) {   
+        foreach($x->query("//*[contains(@class, 'ginput_complex')]//label") as $node) {   
             $classes = $node->getAttribute( "class" );
-            $classes .= ' control-label';
+            $classes .= ' help-block';
             $node->setAttribute( "class" , $classes );
         }
 
@@ -177,7 +177,7 @@ function form_submit_button($button, $form){
  */
 function form_next_button($button, $form){
 
-    $button = str_replace("class='button", "class='btn btn-info", $button );
+    $button = str_replace("class='button", "class='btn btn-primary", $button );
 
     return $button;
     
@@ -188,7 +188,7 @@ function form_next_button($button, $form){
  */
 function form_previous_button($button, $form){
 
-    $button = str_replace("class='button", "class='btn btn-info", $button );
+    $button = str_replace("class='button", "class='btn btn-default", $button );
 
     return $button;
     

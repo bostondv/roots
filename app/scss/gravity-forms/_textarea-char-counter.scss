@@ -1,0 +1,26 @@
+.gform_wrapper {
+
+	div.charleft {
+		font-size: 11px;
+		margin-top: 4px;
+		color: $gray-light;
+		width: 92%;
+		white-space: nowrap;
+
+		&[style] {
+			width: 92%;
+		}
+
+		&.warningTextareaInfo {
+			color: $gray-light;
+		}
+	}
+	.left_label div.charleft,
+	.right_label div.charleft {
+		width: 65%;
+		margin-left: 32%;
+	}
+	li.gf_hide_charleft div.charleft  {
+		display: none;
+	}
+}

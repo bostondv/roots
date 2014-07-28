@@ -1,0 +1,64 @@
+.gform_wrapper {
+
+	.gf_progressbar_wrapper {
+		clear: both;
+		margin: 0 0 $line-height-computed;
+		border-bottom: 1px solid $gray-lighter;
+
+		h3.gf_progressbar_title {
+			font-size: $font-size-base;
+			line-height: 1em;
+			margin: 0 0 ($line-height-computed / 2);
+			padding: 0;
+			clear: both;
+			opacity: $gray-light;
+		}
+	}
+
+	.gf_progressbar {
+		@extend .progress;
+	}
+
+	.gf_progressbar_percentage {
+		@extend .progress-bar;
+
+		span {
+			display: block;
+			width: auto;
+			float: right;
+			margin-right: 5px;
+			margin-left: 5px;
+		}
+
+		&.percentbar_0 span {
+			color: #959595;
+			text-shadow: none;
+		}
+
+	}
+
+	.percentbar_blue {
+		@include progress-bar-variant($progress-bar-info-bg);
+	}
+
+	.percentbar_gray {
+		@include progress-bar-variant($gray);
+	}
+
+	.percentbar_green {
+		@include progress-bar-variant($progress-bar-success-bg);
+	}
+
+	.percentbar_orange {
+		@include progress-bar-variant($progress-bar-warning-bg);
+	}
+
+	.percentbar_red {
+		@include progress-bar-variant($progress-bar-danger-bg);
+	}
+
+	.percentbar_custom {
+		background-image: url('#{$gravity-image-path}gf-percentbar-custom.png');
+		background-repeat: repeat-x;
+	}
+}

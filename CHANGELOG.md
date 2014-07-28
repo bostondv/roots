@@ -1,3 +1,12 @@
+### 7.2.0
+* Optimized Bootstrap Gravity Forms implementation
+* Optimized Bootstrap WooCommerce implementation
+* New Bootstrap nav walker, pagination, gallery, and breadcrumbs
+* Replaced microformats with microdata from Schema.org
+* Remove theme activation functions
+* Add post thumbnails jumbotron banner
+* Various improved theme styling elements
+
 ### 7.1.0
 * Responsive embeds using Bootstrap responsive embeds code
 * Move clean up, relative URLs, and nice search to [Soil](https://github.com/roots/soil)

@@ -14,6 +14,8 @@ var cache = require('gulp-cache');
 var args   = require('yargs').argv;
 var gulpif = require('gulp-if');
 var config = require('./config.json');
+var cmq = require('gulp-combine-media-queries');
+var size = require('gulp-size');
 var src = 'app/';
 var dest = 'build/';
 var bower = 'components/';
@@ -34,7 +36,13 @@ gulp.task('styles', function () {
       ]
     }))
     .pipe(prefix('last 1 version', 'ie 9'))
+    .pipe(cmq())
     .pipe(minify({ keepSpecialComments: 1 }))
+    .pipe(size({
+      showFiles: true,
+      gzip: true,
+      title: 'Styles'
+    }))
     .pipe(gulp.dest(dest + 'css'));
 
 });
@@ -50,6 +58,10 @@ gulp.task('scripts', function() {
       outSourceMap: true,
       basePath: 'build/js'
     }))
+    .pipe(size({
+      gzip: true,
+      title: 'Scripts'
+    }))
     .pipe(gulp.dest(dest + 'js'));
 
 });
@@ -62,6 +74,10 @@ gulp.task('admin-scripts', function() {
     .pipe(uglify('admin.js', {
       outSourceMap: true,
       basePath: 'build/js'
+    }))
+    .pipe(size({
+      gzip: true,
+      title: 'Admin Scripts'
     }))
     .pipe(gulp.dest(dest + 'js'));
 

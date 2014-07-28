@@ -1,0 +1,25 @@
+.gform_wrapper {
+
+	.gf_page_steps {
+		margin: 0 0 $line-height-computed;
+		border-bottom: 1px solid $gray-lighter;
+	}
+	.gf_step {
+		margin: 0 $line-height-computed ($line-height-computed / 2) 0;
+		opacity: 0.4;
+		display: inline-block;
+		span.gf_step_number {
+			float: left;
+			font-weight: bold;
+		}
+		&.gf_step_active {
+			opacity: 1;
+		}
+	}
+	.gf_step_clear {
+		display: block;
+		clear: both;
+		height: 1px;
+		overflow: hidden;
+	}
+}

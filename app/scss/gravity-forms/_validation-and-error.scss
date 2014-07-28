@@ -1,0 +1,56 @@
+.gform_wrapper {
+
+	.gfield_required {
+		padding-left: 3px;
+		color: $state-danger-text;
+	}
+
+	.validation_message {
+		font-weight: bold;
+	}
+
+	li.gfield {
+
+		&.gfield_error,
+		&.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+			background-color: #FFDFE0;
+			margin-bottom: 6px;
+			padding: 6px 6px 4px 6px;
+			border-top: 1px solid #C89797;
+			border-bottom: 1px solid #C89797;
+		}
+		&.gfield_creditcard_warning {
+			margin-bottom: 0;
+			padding: 6px 6px 4px 6px;
+			border: 1px solid #C89797;
+
+			div.gfield_creditcard_warning_message {
+				font-size: $font-size-base;
+				padding: 10px 20px 10px 45px;
+				min-height: 25px;
+				background-image: url('#{$gravity-image-path}stopbanner.png');
+				background-repeat: no-repeat;
+				background-position: 0 0;
+				background-color: #790000;
+				border-bottom: 1px solid #620101;
+				color: #fff;
+				line-height: 1.3em;
+				letter-spacing: 0.2pt;
+				margin-bottom: 6px;
+			}
+		}
+		+ li.gfield.gfield_creditcard_warning {
+			margin-top: $line-height-computed / 2;
+		}
+		&.gfield_error.gfield_contains_required {
+			margin-top: $line-height-computed / 2;
+			margin-bottom: $line-height-computed / 2;
+			padding-left: $line-height-computed / 2;
+
+			label.gfield_label,
+			div.ginput_container  {
+				margin-top: $line-height-computed / 2;
+			}
+		}
+	}
+}

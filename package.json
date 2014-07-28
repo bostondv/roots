@@ -1,6 +1,6 @@
 {
   "name": "roots",
-  "version": "7.1.0",
+  "version": "7.2.0",
   "contributors": [
     "Ben Word <ben@benword.com>",
     "Boston Dell-Vandenberg <boston@pomelodesign.com>"
@@ -27,19 +27,21 @@
   },
   "devDependencies": {
     "bower": "^1.3.8",
-    "gulp": "^3.8.5",
+    "gulp": "^3.8.6",
     "gulp-autoprefixer": "^0.0.8",
     "gulp-cache": "^0.2.0",
-    "gulp-concat": "^2.2.0",
-    "gulp-if": "^1.2.1",
-    "gulp-imagemin": "^0.6.1",
-    "gulp-jshint": "^1.6.4",
-    "gulp-minify-css": "^0.3.6",
+    "gulp-combine-media-queries": "^0.1.0",
+    "gulp-concat": "^2.3.4",
+    "gulp-if": "^1.2.4",
+    "gulp-imagemin": "^0.6.2",
+    "gulp-jshint": "^1.8.0",
+    "gulp-minify-css": "^0.3.7",
     "gulp-rename": "^1.2.0",
-    "gulp-ruby-sass": "^0.6.0",
+    "gulp-ruby-sass": "^0.7.1",
+    "gulp-size": "^1.0.0",
     "gulp-uglifyjs": "^0.4.2",
-    "gulp-util": "^2.2.19",
-    "jshint-stylish": "^0.2.0",
+    "gulp-util": "^3.0.0",
+    "jshint-stylish": "^0.4.0",
     "rsyncwrapper": "^0.4.0",
     "run-sequence": "^0.3.6",
     "yargs": "^1.2.6"

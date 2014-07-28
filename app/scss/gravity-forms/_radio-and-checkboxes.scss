@@ -1,0 +1,26 @@
+.gform_wrapper {
+
+	.left_label,
+	.right_label {
+
+		ul.gfield_checkbox,
+		ul.gfield_radio {
+			margin-left: 32%;
+			overflow: hidden;
+
+			li:first-child {
+				margin-top: 0;
+			}
+		}
+
+	}
+
+	ul.gfield_checkbox,
+	ul.gfield_radio {
+		li:first-of-type {
+			margin-top: 0;
+		}
+	}
+
+
+}

@@ -1,0 +1,60 @@
+.gform_wrapper {
+
+	.ginput_complex {
+		@include clearfix();
+
+		label {
+			font-weight: normal;
+		}
+
+		.name_prefix {
+			float: left;
+			width: 30px;
+			margin-right: 14px;
+		}
+
+		.name_suffix {
+			float: left;
+			width: 30px;
+		}
+
+		.name_first,
+		.name_last {
+			float: left;
+			width: 100px;
+			margin-right: 8px;
+		}
+
+		.ginput_left  {
+			width: 50%;
+			float: left;
+			padding-right: 10px;
+		}
+
+		.ginput_right {
+			width: 50%;
+			float: right;
+			padding-left: 10px;
+		}
+
+		.ginput_left,
+		.ginput_right,
+		.ginput_full {
+			display: block;
+		}
+
+	}
+	
+	.left_label .ginput_complex,
+	.right_label .ginput_complex {
+		width: 65%;
+		margin-left: 31%;
+
+		.ginput_left,
+		.ginput_right {
+			width: 49%;
+		}
+
+	}
+
+}

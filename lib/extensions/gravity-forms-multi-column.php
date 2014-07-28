@@ -24,15 +24,19 @@ function gform_column_splits($content, $field, $value, $lead_id, $form_id) {
       $form = RGFormsModel::get_form_meta($form_id, true);
 
       // check for the presence of our special multi-column form class
-      $form_class = explode(' ', $form['cssClass']);
-      $form_class_matches = array_intersect($form_class, array('gform_columns'));
+      if (!empty($form['cssClass'])) {
+        $form_class = explode(' ', $form['cssClass']);
+        $form_class_matches = array_intersect($form_class, array('gform_columns'));
+      }
 
       // check for the presence of our special section break column class
-      $field_class = explode(' ', $field['cssClass']);
-      $field_class_matches = false;
-      foreach ($field_class as $class) {
-        if (strpos($class, 'col') === 0) {
-          $field_class_matches = true;
+      if (!empty($field['cssClass'])) {
+        $field_class = explode(' ', $field['cssClass']);
+        $field_class_matches = false;
+        foreach ($field_class as $class) {
+          if (strpos($class, 'col') === 0) {
+            $field_class_matches = true;
+          }
         }
       }
 

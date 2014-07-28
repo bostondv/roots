@@ -90,7 +90,6 @@ Install the [Soil](https://github.com/bostondv/soil) plugin to enable additional
 These are plugins we recommend and use on most projects alongside Roots theme. They are completely optional and Roots will work with or without them. Roots theme specifically inlcudes some special support for WordPress SEO, Gravity Forms, WooCommerce and AffiliateWP.
 
 * [Soil](https://github.com/bostondv/soil)
-* [HTML5 Boilerplate .htaccess](https://github.com/roots/wp-h5bp-htaccess)
 * [Wordpress SEO](https://wordpress.org/plugins/wordpress-seo/)
 * [Bootstrap 3 Shortcodes](https://wordpress.org/plugins/bootstrap-3-shortcodes/)
 * [Font Awesome Shortcodes](https://wordpress.org/plugins/font-awesome-shortcodes/)
@@ -98,11 +97,12 @@ These are plugins we recommend and use on most projects alongside Roots theme. T
 * [Enhanced Text Widget](https://wordpress.org/plugins/enhanced-text-widget/)
 * [Gravity Forms](http://gravityforms.com)
 * [WooCommerce](http://wordpress.org/plugins/woocommerce/)
+* [Wordfence](http://wordpress.org/plugins/wordfence/)
 * [AffiliateWP](https://github.com/affiliatewp/AffiliateWP)
 
 ### WooCommerce
 
-[Woocommerce](http://www.woothemes.com/woocommerce/) support in included in the theme by default. It extends default WooCommerce markup and styles to work with Roots and Bootstrap. If you do not need WooCommerce support, remove the theme support from `config.php` and `@import "base/woocommerce";` from `main.scss`. You can optionally also remove the woocommerce support files.
+[Woocommerce](http://www.woothemes.com/woocommerce/) support in included in the theme by default. It extends default WooCommerce markup and styles to work with Roots and Bootstrap. If you do not need WooCommerce support, remove the include from `functions.php` and the `@import` from `main.scss`. You can optionally also remove the woocommerce support files.
 
 ## Documentation
 

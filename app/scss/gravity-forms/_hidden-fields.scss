@@ -1,0 +1,15 @@
+.gform_wrapper {
+
+	input[type=hidden],
+	.gform_hidden,
+	.gf_hidden {
+		display: none !important;
+	}
+
+	.ginput_full br,
+	.ginput_left br,
+	.ginput_right br {
+		display: none !important;
+	}
+
+}
