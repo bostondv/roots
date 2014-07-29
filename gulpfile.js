@@ -2,18 +2,12 @@ var gulp = require('gulp');
 var sass = require('gulp-ruby-sass');
 var prefix = require('gulp-autoprefixer');
 var minify = require('gulp-minify-css');
-var sequence = require('run-sequence');
 var uglify = require('gulp-uglifyjs');
 var jshint = require('gulp-jshint');
-var concat = require('gulp-concat');
 var rename = require('gulp-rename');
-var rsync = require('rsyncwrapper').rsync;
-var gutil = require('gulp-util');
+var util = require('gulp-util');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
-var args   = require('yargs').argv;
-var gulpif = require('gulp-if');
-var config = require('./config.json');
 var cmq = require('gulp-combine-media-queries');
 var size = require('gulp-size');
 var src = 'app/';
@@ -117,33 +111,8 @@ gulp.task('watch', function () {
 
 });
 
-gulp.task('rsync', function() {
-
-  if ( config.servers[deployTarget].user === '' ||
-       config.servers[deployTarget].host === '' ) {
-    return gutil.log(gutil.colors.red('ERROR:'), 'User, host and path not configured for ' + deployTarget + ' target in config.json');
-  }
-
-  rsync({
-    ssh: true,
-    src: './',
-    dest: config.servers[deployTarget].user + '@' + config.servers[deployTarget].host + ':' + config.servers[deployTarget].path,
-    recursive: true,
-    syncDest: true,
-    exclude: ['node_modules', '.sass-cache'],
-    args: ['--verbose']
-  }, function(error, stdout, stderr, cmd) {
-      gutil.log(stdout);
-  });
-
-});
-
 gulp.task('clearCache', function() {
   cache.clearAll();
-});
-
-gulp.task('deploy', function(cb) {
-  sequence('default', 'rsync', cb);
 });
 
 gulp.task('default', ['styles', 'scripts', 'admin-scripts', 'images', 'fonts']);
