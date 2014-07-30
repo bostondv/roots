@@ -14,8 +14,6 @@ var src = 'app/';
 var dest = 'build/';
 var bower = 'components/';
 
-var deployTarget = ( typeof args.target !== 'undefined' ? args.target : 'staging' );
-
 gulp.task('styles', function () {
 
   return gulp.src([
