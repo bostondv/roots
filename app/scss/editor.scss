@@ -18,7 +18,19 @@
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap/buttons";
 @import 'base/wordpress';
 
-body {
+html .mceContentBody {
   max-width: 800px;
   margin: 10px;
+}
+
+.mce-item-table {
+  @extend .table;
+  @extend .table-striped;
+  @extend .table-bordered;
+  th, td {
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    margin: inherit;
+  }
 }
