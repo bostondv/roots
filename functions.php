@@ -28,7 +28,9 @@ $roots_includes = array(
   'lib/bootstrap/gravity-forms.php',
   'lib/bootstrap/woocommerce.php',
   'lib/gravity-forms/multi-column.php',
-  'lib/woocommerce/core.php'
+  'lib/woocommerce/core.php',
+  'lib/woocommerce/breadcrumbs.php',
+  'lib/woocommerce/custom.php'
 );
 
 foreach ($roots_includes as $file) {

@@ -6,26 +6,30 @@
 
 /* Alignment */
 
-.aligncenter {
+.aligncenter,
+.alignleft,
+.alignright {
   display: block;
   margin-right: auto;
   margin-left: auto;
 }
 
-.alignleft {
-  float: left;
-  margin-right: $line-height-computed;
-}
+@media (min-width: $screen-sm-min) {
+  .alignleft {
+    float: left;
+    margin-right: $line-height-computed;
+  }
 
-.alignright {
-  float: right;
-  margin-left: $line-height-computed;
+  .alignright {
+    float: right;
+    margin-left: $line-height-computed;
+  }
 }
 
 /* Images and captions */
 
 img {
-  @include img-responsive('inline-block');
+  @include img-responsive(inline-block);
 }
 
 img[class*="wp-image-"] {
@@ -55,8 +59,8 @@ video {
   margin-left: 15px;
 }
 
-/* Break-word in titles */
+/* Break-word in larger headings */
 
-.entry-title {
+h1, h2, h3, h4 {
   word-wrap: break-word;
 }
