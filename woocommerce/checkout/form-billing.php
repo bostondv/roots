@@ -8,8 +8,6 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-global $woocommerce;
 ?>
 
 <div class="woocommerce-billing-fields">
@@ -28,14 +26,13 @@ global $woocommerce;
 
 	</div>
 
-	<?php do_action('woocommerce_before_checkout_billing_form', $checkout ); ?>
+	<?php do_action( 'woocommerce_before_checkout_billing_form', $checkout ); ?>
 
-	<?php foreach ($checkout->checkout_fields['billing'] as $key => $field) : ?>
+	<?php foreach ( $checkout->checkout_fields['billing'] as $key => $field ) : ?>
 
 		<?php woocommerce_bootstrap_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
 
 	<?php endforeach; ?>
 
 	<?php do_action('woocommerce_after_checkout_billing_form', $checkout ); ?>
-
 </div>

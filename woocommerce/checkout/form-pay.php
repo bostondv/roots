@@ -8,8 +8,6 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-global $woocommerce;
 ?>
 <form id="order_review" method="post">
 
@@ -75,7 +73,7 @@ global $woocommerce;
 					}
 				} else {
 
-					echo '<p>'.__( 'Sorry, it seems that there are no available payment methods for your location. Please contact us if you require assistance or wish to make alternate arrangements.', 'woocommerce' ).'</p>';
+					echo '<p>' . __( 'Sorry, it seems that there are no available payment methods for your location. Please contact us if you require assistance or wish to make alternate arrangements.', 'woocommerce' ) . '</p>';
 
 				}
 			?>
@@ -85,7 +83,8 @@ global $woocommerce;
 		<div class="form-row">
 			<?php wp_nonce_field( 'woocommerce-pay' ); ?>
 			<?php
-				$pay_order_button_text = apply_filters('woocommerce_pay_order_button_text', __( 'Pay for order', 'woocommerce' ));
+				$pay_order_button_text = apply_filters( 'woocommerce_pay_order_button_text', __( 'Pay for order', 'woocommerce' ) );
+				
 				echo apply_filters( 'woocommerce_pay_order_button_html', '<input type="submit" class="btn btn-primary btn-lg" id="place_order" value="' . esc_attr( $pay_order_button_text ) . '" data-value="' . esc_attr( $pay_order_button_text ) . '" />' );
 			?>
 			<input type="hidden" name="woocommerce_pay" value="1" />

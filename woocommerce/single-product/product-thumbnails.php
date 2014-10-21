@@ -41,7 +41,6 @@ if ( $attachment_ids ) {
 
 			echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', sprintf( '<a href="%s" class="%s thumbnail" title="%s" data-rel="prettyPhoto[product-gallery]">%s</a>', $image_link, $image_class, $image_title, $image ), $attachment_id, $post->ID, $image_class );
 
-
 			$loop++;
 		}
 

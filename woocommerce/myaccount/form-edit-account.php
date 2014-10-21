@@ -4,19 +4,19 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     1.6.4
+ * @version     2.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+    exit;
 }
-
-global $woocommerce;
 ?>
 
 <?php wc_print_notices(); ?>
 
 <form action="" method="post">
+
+	<?php do_action( 'woocommerce_edit_account_form_start' ); ?>
 
 	<p class="form-row form-row-first form-group">
 		<label for="account_first_name"><?php _e( 'First name', 'woocommerce' ); ?> <span class="required">*</span></label>
@@ -36,22 +36,27 @@ global $woocommerce;
 
 		<p class="form-row form-row-thirds form-group">
 			<label for="password_current"><?php _e( 'Current Password (leave blank to leave unchanged)', 'woocommerce' ); ?></label>
-			<input type="password" class="form-control"  name="password_current" id="password_current" />
+			<input type="password" class="form-control" name="password_current" id="password_current" />
 		</p>
 		<p class="form-row form-row-thirds form-group">
 			<label for="password_1"><?php _e( 'New Password (leave blank to leave unchanged)', 'woocommerce' ); ?></label>
-			<input type="password" class="form-control"  name="password_1" id="password_1" />
+			<input type="password" class="form-control" name="password_1" id="password_1" />
 		</p>
 		<p class="form-row form-row-thirds form-group">
 			<label for="password_2"><?php _e( 'Confirm New Password', 'woocommerce' ); ?></label>
-			<input type="password" class="form-control"  name="password_2" id="password_2" />
+			<input type="password" class="form-control" name="password_2" id="password_2" />
 		</p>
 	</fieldset>
-
 	<div class="clear"></div>
 
-	<p><input type="submit" class="button btn btn-default" name="save_account_details" value="<?php _e( 'Save changes', 'woocommerce' ); ?>" /></p>
+	<?php do_action( 'woocommerce_edit_account_form' ); ?>
 
-	<?php wp_nonce_field( 'save_account_details' ); ?>
-	<input type="hidden" name="action" value="save_account_details" />
+	<p>
+		<?php wp_nonce_field( 'save_account_details' ); ?>
+		<input type="submit" class="button btn btn-primary" name="save_account_details" value="<?php _e( 'Save changes', 'woocommerce' ); ?>" />
+		<input type="hidden" name="action" value="save_account_details" />
+	</p>
+
+	<?php do_action( 'woocommerce_edit_account_form_end' ); ?>
+	
 </form>

@@ -9,13 +9,12 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-global $woocommerce, $product, $post;
+global $product, $post;
 ?>
 
 <?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
 <form class="variations_form cart form-horizontal" method="post" enctype='multipart/form-data' data-product_id="<?php echo $post->ID; ?>" data-product_variations="<?php echo esc_attr( json_encode( $available_variations ) ) ?>">
-
 	<?php if ( ! empty( $available_variations ) ) : ?>
 
 		<div class="variations">
@@ -37,9 +36,9 @@ global $woocommerce, $product, $post;
 						}
 
 						// Get terms if this is a taxonomy - ordered
-						if ( taxonomy_exists( $name ) ) {
+									if ( taxonomy_exists( sanitize_title( $name ) ) ) {
 
-							$orderby = wc_attribute_orderby( $name );
+										$orderby = wc_attribute_orderby( sanitize_title( $name ) );
 
 							switch ( $orderby ) {
 								case 'name' :
@@ -53,7 +52,7 @@ global $woocommerce, $product, $post;
 								break;
 							}
 
-							$terms = get_terms( $name, $args );
+										$terms = get_terms( sanitize_title( $name ), $args );
 
 							foreach ( $terms as $term ) {
 								if ( ! in_array( $term->slug, $options ) )
@@ -61,7 +60,6 @@ global $woocommerce, $product, $post;
 
 								echo '<option value="' . esc_attr( $term->slug ) . '" ' . selected( sanitize_title( $selected_value ), sanitize_title( $term->slug ), false ) . '>' . apply_filters( 'woocommerce_variation_option_name', $term->name ) . '</option>';
 							}
-
 						} else {
 
 							foreach ( $options as $option ) {
@@ -81,14 +79,15 @@ global $woocommerce, $product, $post;
 	    <?php endforeach;?>
 		</div>
 
-		<?php do_action('woocommerce_before_add_to_cart_button'); ?>
+		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
 		<div class="single_variation_wrap" style="display:none;">
+			<?php do_action( 'woocommerce_before_single_variation' ); ?>
 			<div class="row">
 				<div class="col-sm-9 col-sm-offset-3">
 					<div class="single_variation"></div>
+
 					<div class="variations_button">
-						<input type="hidden" name="variation_id" value="" />
 						<?php woocommerce_quantity_input(); ?>
 						<button type="submit" class="single_add_to_cart_button btn btn-primary"><?php echo  $product->single_add_to_cart_text(); ?></button>
 					</div>
@@ -101,6 +100,7 @@ global $woocommerce, $product, $post;
 		</div>
 
 		<?php do_action( 'woocommerce_after_single_variation' ); ?>
+		</div>
 
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
  

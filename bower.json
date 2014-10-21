@@ -1,6 +1,6 @@
 {
   "name": "roots",
-  "version": "7.2.0",
+  "version": "7.2.1",
   "homepage": "https://github.com/bostondv/roots",
   "authors": [
     "Ben Word <ben@benword.com>",
@@ -16,6 +16,6 @@
   "dependencies": {
     "jquery": "~2",
     "bootstrap-sass-official": "~3.2",
-    "font-awesome": "~4.1"
+    "font-awesome": "~4.2"
   }
 }

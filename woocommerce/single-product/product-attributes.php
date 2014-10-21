@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-$has_row = false;
-$alt = 1;
+$has_row    = false;
+$alt        = 1;
 $attributes = $product->get_attributes();
 
 ob_start();
@@ -26,7 +26,7 @@ ob_start();
 		<?php if ( $product->has_weight() ) : $has_row = true; ?>
 			<tr class="<?php if ( ( $alt = $alt * -1 ) == 1 ) echo 'alt'; ?>">
 				<th><?php _e( 'Weight', 'woocommerce' ) ?></th>
-				<td class="product_weight"><?php echo $product->get_weight() . ' ' . esc_attr( get_option('woocommerce_weight_unit') ); ?></td>
+				<td class="product_weight"><?php echo $product->get_weight() . ' ' . esc_attr( get_option( 'woocommerce_weight_unit' ) ); ?></td>
 			</tr>
 		<?php endif; ?>
 
@@ -40,14 +40,12 @@ ob_start();
 	<?php endif; ?>
 
 	<?php foreach ( $attributes as $attribute ) :
-
 		if ( empty( $attribute['is_visible'] ) || ( $attribute['is_taxonomy'] && ! taxonomy_exists( $attribute['name'] ) ) ) {
 			continue;
 		} else {
 			$has_row = true;
 		}
 		?>
-
 		<tr class="<?php if ( ( $alt = $alt * -1 ) == 1 ) echo 'alt'; ?>">
 			<th><?php echo wc_attribute_label( $attribute['name'] ); ?></th>
 			<td><?php
@@ -66,6 +64,7 @@ ob_start();
 			?></td>
 		</tr>
 	<?php endforeach; ?>
+	
 </table>
 <?php
 if ( $has_row ) {

@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <form method="post" class="lost_reset_password">
 
-    <?php if( 'lost_password' == $args['form'] ) : ?>
+	<?php if( 'lost_password' == $args['form'] ) : ?>
 
     <div class="alert alert-warning"><?php echo apply_filters( 'woocommerce_lost_password_message', __( 'Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.', 'woocommerce' ) ); ?></div>
 
@@ -55,6 +55,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <input type="hidden" name="reset_key" value="<?php echo isset( $args['key'] ) ? $args['key'] : ''; ?>" />
     <input type="hidden" name="reset_login" value="<?php echo isset( $args['login'] ) ? $args['login'] : ''; ?>" />
+
 	<?php endif; ?>
 
     <div class="form-group">

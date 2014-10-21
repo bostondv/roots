@@ -10,10 +10,12 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+    exit;
 }
 
 if ( $downloads = WC()->customer->get_downloadable_products() ) : ?>
+
+	<?php do_action( 'woocommerce_before_available_downloads' ); ?>
 	
 	<div class="page-header">
 		<h2 class="entry-title"><?php echo apply_filters( 'woocommerce_my_account_my_downloads_title', __( 'Available downloads', 'woocommerce' ) ); ?></h2>
@@ -48,5 +50,7 @@ if ( $downloads = WC()->customer->get_downloadable_products() ) : ?>
 		<?php endforeach; ?>
 		</tbody>
 	</table>
+
+	<?php do_action( 'woocommerce_after_available_downloads' ); ?>
 
 <?php endif; ?>

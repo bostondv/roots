@@ -8,11 +8,9 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-global $woocommerce;
-
 ?>
-<?php if ( ! is_ajax() ) : ?><div id="order_review"><?php endif; ?>
+
+<?php if ( ! $is_ajax ) : ?><div id="order_review"><?php endif; ?>
 
 	<table class="table table-striped">
 		<thead>
@@ -36,11 +34,11 @@ global $woocommerce;
 
 			<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
 
-				<?php do_action('woocommerce_review_order_before_shipping'); ?>
+				<?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
 
 				<?php wc_cart_totals_shipping_html(); ?>
 
-				<?php do_action('woocommerce_review_order_after_shipping'); ?>
+				<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
 
 			<?php endif; ?>
 
@@ -51,8 +49,8 @@ global $woocommerce;
 				</tr>
 			<?php endforeach; ?>
 
-			<?php if ( WC()->cart->tax_display_cart == 'excl' ) : ?>
-				<?php if ( get_option( 'woocommerce_tax_total_display' ) == 'itemized' ) : ?>
+			<?php if ( WC()->cart->tax_display_cart === 'excl' ) : ?>
+				<?php if ( get_option( 'woocommerce_tax_total_display' ) === 'itemized' ) : ?>
 					<?php foreach ( WC()->cart->get_tax_totals() as $code => $tax ) : ?>
 						<tr class="tax-rate tax-rate-<?php echo sanitize_title( $code ); ?>">
 							<th><?php echo esc_html( $tax->label ); ?></th>
@@ -168,7 +166,7 @@ global $woocommerce;
 			<?php do_action( 'woocommerce_review_order_before_submit' ); ?>
 
 			<?php
-			$order_button_text = apply_filters('woocommerce_order_button_text', __( 'Place order', 'woocommerce' ));
+			$order_button_text = apply_filters( 'woocommerce_order_button_text', __( 'Place order', 'woocommerce' ) );
 
 			echo apply_filters( 'woocommerce_order_button_html', '<input type="submit" class="btn btn-primary btn-lg" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr( $order_button_text ) . '" data-value="' . esc_attr( $order_button_text ) . '" />' );
 			?>
@@ -190,4 +188,4 @@ global $woocommerce;
 
 	<?php do_action( 'woocommerce_review_order_after_payment' ); ?>
 
-<?php if ( ! is_ajax() ) : ?></div><?php endif; ?>
+<?php if ( ! $is_ajax ) : ?></div><?php endif; ?>

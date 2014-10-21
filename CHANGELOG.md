@@ -1,3 +1,8 @@
+### 7.2.1 - October 21, 2014
+* WooCommerce 2.2 support
+* Update bower and npm dependencies to latest versions
+* Minor bug fixes
+
 ### 7.2.0
 * Optimized Bootstrap Gravity Forms implementation
 * Optimized Bootstrap WooCommerce implementation

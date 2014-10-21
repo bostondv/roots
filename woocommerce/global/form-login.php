@@ -9,12 +9,13 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-global $woocommerce;
-
-if (is_user_logged_in()) return;
+if ( is_user_logged_in() ) 
+	return;
 ?>
 <form method="post" class="login form-horizontal" <?php if ( $hidden ) echo 'style="display:none;"'; ?>>
 	
+	<?php do_action( 'woocommerce_login_form_start' ); ?>
+
 	<div class="form-group">
 		<?php if ( $message ) echo wpautop( wptexturize( $message ) ); ?>
 	</div>
@@ -33,13 +34,17 @@ if (is_user_logged_in()) return;
 		</div>
 	</div>
 
+	<?php do_action( 'woocommerce_login_form' ); ?>
+
 	<div class="form-group">
-		<?php $woocommerce->nonce_field('login', 'login') ?>
+		<?php wp_nonce_field( 'woocommerce-login' ); ?>
 		<div class="col-sm-offset-3 col-sm-9">
 			<input type="submit" class="btn btn-primary " name="login" value="<?php _e( 'Login', 'woocommerce' ); ?>" />
 			<input type="hidden" name="redirect" value="<?php echo esc_url( $redirect ) ?>" />
-			<a class="lost_password" href="<?php echo esc_url( wp_lostpassword_url( home_url() ) ); ?>"><?php _e( 'Lost Password?', 'woocommerce' ); ?></a>
+			<a class="lost_password" href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Lost your password?', 'woocommerce' ); ?></a>
 		</div>
 	</div>
+
+	<?php do_action( 'woocommerce_login_form_end' ); ?>
 
 </form>

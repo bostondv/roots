@@ -8,15 +8,15 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+    exit;
 }
 ?>
 
 <?php wc_print_notices(); ?>
 
-<?php do_action('woocommerce_before_customer_login_form'); ?>
+<?php do_action( 'woocommerce_before_customer_login_form' ); ?>
 
-<?php if (get_option('woocommerce_enable_myaccount_registration')=='yes') : ?>
+<?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) : ?>
 
 <div class="row" id="customer_login">
 
@@ -33,8 +33,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php do_action( 'woocommerce_login_form_start' ); ?>
 
 			<p class="form-group">
-				<label for="username"><?php _e( 'Username or email', 'woocommerce' ); ?> <span class="required">*</span></label>
-				<input type="text" class="form-control" name="username" id="username" value="<?php if ( ! empty( $_POST['username'] ) ) echo esc_attr( $_POST['username'] ); ?>"/>
+				<label for="username"><?php _e( 'Username or email address', 'woocommerce' ); ?> <span class="required">*</span></label>
+				<input type="text" class="form-control" name="username" id="username" value="<?php if ( ! empty( $_POST['username'] ) ) echo esc_attr( $_POST['username'] ); ?>" />
 			</p>
 			<p class="form-group">
 				<label for="password"><?php _e( 'Password', 'woocommerce' ); ?> <span class="required">*</span></label>
@@ -53,12 +53,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<p class="form-group">
 				<a href="<?php echo esc_url( wc_lostpassword_url() ); ?>"><?php _e( 'Lost your password?', 'woocommerce' ); ?></a>
 			</p>
-		
+
 			<?php do_action( 'woocommerce_login_form_end' ); ?>
 
 		</form>
 
-<?php if (get_option('woocommerce_enable_myaccount_registration')=='yes') : ?>
+<?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) : ?>
 
 	</div>
 
@@ -80,7 +80,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					<div class="form-group">
 						<label for="reg_username"><?php _e( 'Username', 'woocommerce' ); ?> <span class="required">*</span></label>
-						<input type="text" class="form-control" name="username" id="reg_username" value="<?php if (isset($_POST['username'])) echo esc_attr($_POST['username']); ?>" />
+						<input type="text" class="form-control" name="username" id="reg_username" value="<?php if ( ! empty( $_POST['username'] ) ) echo esc_attr( $_POST['username'] ); ?>" />
 					</div>
 
 				</div>
@@ -140,4 +140,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <?php endif; ?>
 
-<?php do_action('woocommerce_after_customer_login_form'); ?>
+<?php do_action( 'woocommerce_after_customer_login_form' ); ?>

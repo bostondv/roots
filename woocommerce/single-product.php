@@ -8,39 +8,43 @@
  * @package 	WooCommerce/Templates
  * @version     1.6.4
  */
- 
+
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-get_header(); // Loads the header.php template. ?>
+get_header( 'shop' ); ?>
 
-		<?php get_template_part( 'loop-meta' ); // Loads the loop-meta.php template. ?>
+	<?php
+		/**
+		 * woocommerce_before_main_content hook
+		 *
+		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+		 * @hooked woocommerce_breadcrumb - 20
+		 */
+		do_action( 'woocommerce_before_main_content' );
+	?>
 
-		<?php get_template_part( 'breadcrumbs' ); // Loads the breadcrumbs.php template. ?>
+		<?php while ( have_posts() ) : the_post(); ?>
 
-		<div class="container">
+			<?php wc_get_template_part( 'content', 'single-product' ); ?>
 
-			<div id="content">
+		<?php endwhile; // end of the loop. ?>
 
-		<?php if ( have_posts() ) { ?>
+	<?php
+		/**
+		 * woocommerce_after_main_content hook
+		 *
+		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+		 */
+		do_action( 'woocommerce_after_main_content' );
+	?>
 
-			<?php while ( have_posts() ) { the_post(); ?>
+	<?php
+		/**
+		 * woocommerce_sidebar hook
+		 *
+		 * @hooked woocommerce_get_sidebar - 10
+		 */
+		do_action( 'woocommerce_sidebar' );
+	?>
 
-				<?php wc_get_template_part( 'content', 'single-product' ); ?>
-				
-			<?php } // End while loop. ?>
-
-		<?php } else { ?>
-
-			<?php get_template_part( 'loop-error' ); // Loads the loop-error.php template. ?>
-
-		<?php } // End if check. ?>
-
-		<?php get_template_part( 'loop-nav' ); // Loads the loop-nav.php template. ?>
-
-			</div><!-- #content -->
-
-		<?php get_sidebar( 'woocommerce' ); // Loads the sidebar-bbpress.php template. ?>
-
-		</div><!-- .container -->
-
-<?php get_footer(); // Loads the footer.php template. ?>
+<?php get_footer( 'shop' ); ?>
