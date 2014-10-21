@@ -58,7 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php endif; ?>
 
     <div class="form-group">
-        <input type="submit" class="btn btn-default" name="reset" value="<?php echo 'lost_password' == $args['form'] ? __( 'Reset Password', 'woocommerce' ) : __( 'Save', 'woocommerce' ); ?>" />
+        <input type="submit" class="btn btn-primary" name="wc_reset_password" value="<?php echo 'lost_password' == $args['form'] ? __( 'Reset Password', 'woocommerce' ) : __( 'Save', 'woocommerce' ); ?>" />
     </div>
     
     <?php wp_nonce_field( $args['form'] ); ?>

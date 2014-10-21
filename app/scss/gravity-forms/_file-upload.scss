@@ -16,6 +16,11 @@
 		margin-bottom: $line-height-computed / 2;
 	}
 
+	.gform_drop_area .button {
+		@extend .btn;
+		@extend .btn-default;
+	}
+
 }
 
 .right_label .gform_fileupload_multifile,

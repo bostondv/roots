@@ -128,9 +128,7 @@ $gravity-image-path: "css/gravity/images/" !default;
   }
 
   .gform_footer {
-    padding: $line-height-computed 0 0;
     margin: $line-height-computed 0 0;
-    border-top: 1px solid $gray-lighter;
     clear: both;
 
     &.right_label,
