@@ -230,7 +230,7 @@ function add_form_validation_class( $validation_message, $form ){
  */
 function add_form_confirmation_class( $confirmation, $form, $lead, $ajax ){
 
-    if ( !is_admin() ) {
+    if ( !is_admin() && !is_array($confirmation) ) {
 
         $dom = new DOMDocument();
 
